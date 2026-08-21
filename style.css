@@ -154,3 +154,14 @@ button.btn{border:0;cursor:pointer;width:max-content}
   .service,.service+.service{border-left:0;padding-left:0}
   .footer-grid{grid-template-columns:1fr}
 }
+
+.about-portrait{
+  width:100%;
+  max-width:500px;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  object-position:center 30%;
+  border:1px solid var(--line);
+}
+.about-photo-wrap{display:flex;align-items:flex-start}
+@media(max-width:900px){.about-portrait{max-width:420px}}

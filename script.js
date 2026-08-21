@@ -39,3 +39,38 @@ function escapeHtml(s){
   return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 }
 loadCmsContent();
+
+async function loadExtraCmsContent(){
+  try{
+    const response=await fetch('/content/site.json',{cache:'no-store'});
+    if(!response.ok)return;
+    const data=await response.json();
+
+    document.querySelectorAll('[data-cms-image]').forEach(el=>{
+      let value=data;
+      for(const key of el.dataset.cmsImage.split('.')) value=value?.[key];
+      if(value) el.src=value;
+    });
+    document.querySelectorAll('[data-cms-alt]').forEach(el=>{
+      let value=data;
+      for(const key of el.dataset.cmsAlt.split('.')) value=value?.[key];
+      if(value) el.alt=value;
+    });
+
+    const renderCards=(selector,items)=>{
+      const host=document.querySelector(selector);
+      if(!host||!Array.isArray(items)) return;
+      host.innerHTML=items.map(item=>`<div class="card"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p></div>`).join('');
+    };
+
+    renderCards('[data-cms-cards="presse.services"]',data.presse?.services);
+    renderCards('[data-cms-cards="langaaen.principles"]',data.langaaen?.principles);
+    renderCards('[data-cms-cards="foredrag.audiences"]',data.foredrag?.audiences);
+
+    const list=document.querySelector('[data-cms-list="journalistik.services"]');
+    if(list&&Array.isArray(data.journalistik?.services)){
+      list.innerHTML=data.journalistik.services.map(item=>`<li>${escapeHtml(item)}</li>`).join('');
+    }
+  }catch(err){console.warn(err);}
+}
+loadExtraCmsContent();
