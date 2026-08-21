@@ -186,3 +186,58 @@ button.btn{border:0;cursor:pointer;width:max-content}
  .editorial-photo-wide img{aspect-ratio:4/3}
  .home-work-photo{max-width:none;aspect-ratio:4/5}
 }
+
+
+/* v6: blødere billedkanter uden at gøre siden til et kort-design */
+:root{
+  --image-radius: 12px;
+}
+
+.editorial-photo img,
+.editorial-photo-wide img,
+.home-work-photo,
+.service-photo,
+.langaa-visual img,
+.about-portrait,
+.foredrag-photo-band img {
+  border-radius: var(--image-radius);
+}
+
+/* Originalfotoet med Lars Løkke vises uden billedmanipulation eller hård beskæring */
+.editorial-photo-wide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* En anelse blødere visning af øvrige billeder */
+.home-work-photo,
+.service-photo,
+.langaa-visual img {
+  overflow: hidden;
+}
+
+/* Foredragsbilledet fra boghandlen får mere højde, så publikum og rummet kan aflæses */
+.service-with-photo .service-photo {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+@media (max-width: 800px){
+  .editorial-photo-wide img {
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+}
+
+/* v7: Lars Løkke-fotoet vises i originalt billedformat uden beskæring */
+.editorial-photo-wide img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
