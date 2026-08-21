@@ -1,8 +1,22 @@
 {
   "kicker": "Journalistik · Kommunikation · Formidling",
-  "title": "Ord, der rykker.",
-  "title_accent": "Historier, der bliver.",
-  "intro": "Langå Media arbejder med journalistik og kommunikation, der begynder med det vigtigste spørgsmål: Hvad er egentlig historien?",
-  "about_title": "Ikke et reklamebureau.",
-  "about_text": "Langå Media er bygget på journalistiske arbejdsmetoder: at lytte, stille spørgsmål, finde vinklen og skrive, så mennesker forstår, hvorfor noget betyder noget."
+  "title": "Jeg finder historien.",
+  "title_accent": "Og fortæller den, så den bliver læst.",
+  "intro": "Jeg hedder Bjarke. Jeg er journalist og står bag Langå Media. Jeg skriver journalistik, hjælper virksomheder og organisationer med at finde og fortælle deres historier og udvikler mine egne journalistiske projekter.",
+  "about_title": "Jeg er Bjarke",
+  "about_text": "Jeg har arbejdet med journalistik, siden før sociale medier blev mediernes vigtigste distributionskanal, og før alle virksomheder skulle være deres eget medie. Noget har ændret sig. Noget har ikke. Man skal stadig kunne finde en historie, være nysgerrig, stille det ekstra spørgsmål og skrive, så andre gider læse det.",
+  "principle": "Fælles for det hele er ret enkelt: Der skal være en historie at fortælle. Og den skal fortælles ordentligt.",
+  "work_title": "Journalistikkens værktøjer. Også når opgaven hedder kommunikation.",
+  "langaaen_title": "Mens andre medier rykker ud, rykker jeg ind.",
+  "langaaen_text": "Langåen skal være et professionelt, uafhængigt og hyperlokalt nyhedsmedie for Langå. Ikke et medie, der forsøger at dække en hel kommune fra et skrivebord et andet sted. Et medie, der er til stede i byen, når historierne sker.",
+  "contact_title": "Har du noget, der skal fortælles?",
+  "contact_text": "Måske mangler du en journalist til en artikel. Måske har din virksomhed en historie, som pressen faktisk kunne være interesseret i. Måske skal en tekst skrives om. Eller måske vil du booke mit foredrag.",
+  "journalistik_image": "/images/uploads/journalistik-interview.jpg",
+  "journalistik_image_alt": "Bjarke arbejder med et interview",
+  "about_image": "/images/uploads/bjarke-kamera.jpg",
+  "about_image_alt": "Bjarke på journalistisk arbejde med kamera",
+  "langaaen_image": "/images/uploads/langaa-krus.jpg",
+  "langaaen_image_alt": "Krus med teksten Jeg elsker Langå og Costa del Langå",
+  "foredrag_image": "/images/uploads/foredrag-kirke.jpg",
+  "foredrag_image_alt": "Bjarke holder oplæsning og foredrag"
 }

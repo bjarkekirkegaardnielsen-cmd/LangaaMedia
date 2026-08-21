@@ -21,7 +21,22 @@ collections:
           - { label: "Fremhævet overskrift", name: "title_accent", widget: "string" }
           - { label: "Introduktion", name: "intro", widget: "text" }
           - { label: "Om-overskrift", name: "about_title", widget: "string" }
+          - { label: "Grundprincip", name: "principle", widget: "text" }
+          - { label: "Overskrift over ydelser", name: "work_title", widget: "string" }
+          - { label: "Om-overskrift", name: "about_title", widget: "string" }
           - { label: "Om-tekst", name: "about_text", widget: "text" }
+          - { label: "Langåen-overskrift", name: "langaaen_title", widget: "string" }
+          - { label: "Langåen-tekst", name: "langaaen_text", widget: "text" }
+          - { label: "Kontaktoverskrift", name: "contact_title", widget: "string" }
+          - { label: "Kontakttekst", name: "contact_text", widget: "text" }
+          - { label: "Journalistikbillede", name: "journalistik_image", widget: "image" }
+          - { label: "Beskrivelse af journalistikbillede", name: "journalistik_image_alt", widget: "string" }
+          - { label: "Billede af Bjarke på arbejde", name: "about_image", widget: "image" }
+          - { label: "Beskrivelse af arbejdsbillede", name: "about_image_alt", widget: "string" }
+          - { label: "Langåen-billede", name: "langaaen_image", widget: "image" }
+          - { label: "Beskrivelse af Langåen-billede", name: "langaaen_image_alt", widget: "string" }
+          - { label: "Foredragsbillede", name: "foredrag_image", widget: "image" }
+          - { label: "Beskrivelse af foredragsbillede", name: "foredrag_image_alt", widget: "string" }
 
       - label: "Om mig"
         name: "om_mig"
