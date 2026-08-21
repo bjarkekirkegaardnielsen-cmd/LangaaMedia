@@ -241,3 +241,176 @@ button.btn{border:0;cursor:pointer;width:max-content}
   object-fit: contain !important;
   object-position: center !important;
 }
+
+
+/* =========================================================
+   V8 — blødere, mere redaktionelt billedhierarki
+   ========================================================= */
+
+:root {
+  --image-radius: 24px;
+  --soft-surface: rgba(244, 240, 230, .72);
+  --soft-surface-2: rgba(236, 231, 218, .52);
+}
+
+/* Fotografier skal føles som en del af fladen, ikke som firkantede kort */
+.editorial-photo img,
+.editorial-photo-wide img,
+.home-work-photo,
+.service-photo,
+.langaa-visual img,
+.about-portrait,
+.foredrag-photo-band img {
+  border-radius: var(--image-radius) !important;
+}
+
+.editorial-photo img,
+.home-work-photo,
+.service-photo,
+.langaa-visual img {
+  box-shadow: 0 14px 34px rgba(31, 45, 38, .07);
+}
+
+/* Interviewfoto: mindre, originalt format og forskudt mod højre */
+.editorial-photo-section {
+  padding: .5rem 0 4.5rem;
+}
+
+.editorial-photo-wide {
+  width: min(68%, 820px);
+  margin-left: auto;
+  margin-right: 4%;
+}
+
+.editorial-photo-wide img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.editorial-photo-wide figcaption {
+  padding-left: .25rem;
+  margin-top: .75rem;
+}
+
+/* Ydelserne skal være lettere og mindre "kort-grid" */
+.service-grid {
+  gap: 1.25rem;
+}
+
+.service {
+  border-radius: 18px;
+}
+
+.service-with-photo .service-photo {
+  border-radius: 20px !important;
+}
+
+/* Om Bjarke: tekst dominerer, arbejdsbilledet er et mindre miljøportræt */
+.home-about {
+  grid-template-columns: minmax(250px, 320px) minmax(0, 1fr) !important;
+  gap: clamp(2.5rem, 7vw, 7rem) !important;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.home-about .about-photo-wrap {
+  justify-content: flex-end;
+}
+
+.home-work-photo {
+  width: min(100%, 310px) !important;
+  max-width: 310px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+}
+
+/* Langåen: fotografiet får en roligere, blødere placering */
+.langaa-visual {
+  gap: 1.75rem;
+}
+
+.langaa-visual img {
+  border-radius: 22px !important;
+  max-width: 520px;
+  justify-self: end;
+}
+
+/* Skab rytme uden at gøre alle sektioner til kort */
+#arbejde {
+  background:
+    linear-gradient(180deg, transparent 0%, var(--soft-surface) 16%, var(--soft-surface) 84%, transparent 100%);
+}
+
+.home-about {
+  position: relative;
+}
+
+.home-about::before {
+  content: "";
+  position: absolute;
+  inset: -2rem -3rem;
+  background: var(--soft-surface-2);
+  border-radius: 36px;
+  z-index: -1;
+}
+
+/* Foredragsfoto fra boghandlen: behold miljøet og giv det lidt mere ro */
+.service-with-photo .service-photo {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  object-position: center 44%;
+}
+
+/* På mindre skærme skal hierarkiet stadig være roligt */
+@media (max-width: 900px) {
+  .editorial-photo-wide {
+    width: min(88%, 760px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-about {
+    grid-template-columns: minmax(210px, 280px) minmax(0, 1fr) !important;
+    gap: 2.5rem !important;
+  }
+
+  .home-work-photo {
+    max-width: 270px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --image-radius: 18px;
+  }
+
+  .editorial-photo-wide {
+    width: 100%;
+    margin: 0;
+  }
+
+  .home-about {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-about::before {
+    inset: -1.25rem -1rem;
+    border-radius: 26px;
+  }
+
+  .home-about .about-photo-wrap {
+    justify-content: flex-start;
+  }
+
+  .home-work-photo {
+    width: min(72vw, 280px) !important;
+    max-width: 280px !important;
+  }
+}
+
+.legacy-anchor{display:block;position:relative;top:-90px;visibility:hidden}
