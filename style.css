@@ -593,3 +593,50 @@ button.btn{border:0;cursor:pointer;width:max-content}
     border-radius:20px;
   }
 }
+
+
+/* =========================================================
+   V10 — Lars Løkke-billedet skal være et lille arbejdsfoto,
+   ikke et hovedmotiv. De øvrige billeder ændres ikke.
+   ========================================================= */
+
+.v10-journalism-story {
+  display: block;
+}
+
+/* Kun dette ene billede bliver mindre */
+.v10-journalism-story > img {
+  width: min(62%, 250px) !important;
+  max-width: 250px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: 0 0 1rem 0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 24px rgba(23,32,25,.055) !important;
+}
+
+/* Hold kortet visuelt let, så billedet ikke får uforholdsmæssig vægt */
+.v10-journalism-story .v9-story-copy {
+  padding-top: 0;
+}
+
+/* De andre v9-story-billeder beholder deres størrelse fra v9 */
+.v9-story:not(.v10-journalism-story) > img {
+  width: 100%;
+}
+
+@media(max-width:900px){
+  .v10-journalism-story > img {
+    width: min(54%, 230px) !important;
+    max-width: 230px !important;
+  }
+}
+
+@media(max-width:650px){
+  .v10-journalism-story > img {
+    width: min(68vw, 220px) !important;
+    max-width: 220px !important;
+  }
+}
