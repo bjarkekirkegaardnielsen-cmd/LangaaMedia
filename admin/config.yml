@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: bjarkekirkegaardnielsen-cmd/LangaaMedia
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "da"
+
+collections:
+  - name: "site"
+    label: "Hjemmesiden"
+    files:
+      - label: "Alt indhold"
+        name: "site_content"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - label: "Kontaktoplysninger"
+            name: "site"
+            widget: "object"
+            fields:
+              - { label: "E-mail", name: "email", widget: "string" }
+              - { label: "Sted", name: "location", widget: "string" }
+
+          - label: "Om mig"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Overlinje", name: "kicker", widget: "string" }
+              - { label: "Overskrift", name: "title", widget: "string" }
+              - { label: "Indledning", name: "lead", widget: "text" }
+              - label: "Afsnit"
+                name: "body"
+                widget: "list"
+                field: { label: "Afsnit", name: "paragraph", widget: "text" }
+              - { label: "Afslutning", name: "closing", widget: "string" }
+
+          - label: "Foredrag"
+            name: "foredrag"
+            widget: "object"
+            fields:
+              - { label: "Overskrift", name: "title", widget: "string" }
+              - { label: "Introduktion", name: "intro", widget: "text" }
+              - { label: "Brødtekst", name: "body", widget: "text" }
+              - { label: "Pris", name: "price", widget: "string" }
