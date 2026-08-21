@@ -1,0 +1,23 @@
+{
+  "kicker": "Foredrag",
+  "title": "Bror til et selvmord",
+  "intro": "Hvad sker der med et menneske, når ens bror tager sit eget liv?",
+  "body": "Foredraget handler om tiden efter et selvmord. Om chokket, sorgen, skyldfølelsen, vreden, tavsheden og forsøget på at finde et sprog for noget, der næsten ikke kan forklares.",
+  "book": "Fortællingen kombineres med oplæsning fra digtsamlingen 30 digte efter et selvmord.",
+  "quote": "Jeg kommer ikke med et svar på, hvordan man sørger rigtigt. For det findes ikke.",
+  "price": "Pris fra 6.000 kr.",
+  "audiences": [
+    {
+      "title": "Gymnasier",
+      "text": "Som afsæt for samtaler om sorg, mental sundhed og det at være pårørende."
+    },
+    {
+      "title": "Biblioteker & kulturhuse",
+      "text": "Som åbent arrangement med fortælling, oplæsning og spørgsmål."
+    },
+    {
+      "title": "Foreninger & fagmiljøer",
+      "text": "For mennesker, der arbejder med unge, sorg eller pårørende."
+    }
+  ]
+}
