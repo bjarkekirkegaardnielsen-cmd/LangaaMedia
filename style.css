@@ -640,3 +640,32 @@ button.btn{border:0;cursor:pointer;width:max-content}
     max-width: 220px !important;
   }
 }
+
+/* V11: varmere, mere redaktionel forside */
+body{background:#f5f0e7}
+.v9-hero{background:radial-gradient(circle at 82% 18%,rgba(184,95,67,.075),transparent 27rem),#f5f0e7}
+.v9-hero-inner h1{letter-spacing:-.035em}
+.v9-hero .hero-copy{font-size:clamp(1.08rem,1.6vw,1.28rem);line-height:1.65}
+.v9-principle{border-top:1px solid rgba(38,54,47,.45);font-family:Georgia,"Times New Roman",serif;font-size:1.12rem;line-height:1.55}
+.v9-work{background:#faf7f1}
+.v11-deck{max-width:650px;margin:-1.4rem 0 2.4rem auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.45;color:var(--muted)}
+.v9-story{background:transparent!important;border:none!important;box-shadow:none!important}
+.v9-story img{border-radius:22px;box-shadow:none}
+.v9-story-copy{border-top:1px solid rgba(38,54,47,.18);margin-top:1rem;padding-top:1rem}
+.v9-story h3{font-family:Georgia,"Times New Roman",serif;font-weight:500;line-height:1.15}
+.v10-journalism-story>img{width:210px!important;max-width:210px!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;border-radius:18px!important;box-shadow:none!important}
+.v9-comm{background:#ebe2d5;border-top:1px solid rgba(38,54,47,.12);border-bottom:1px solid rgba(38,54,47,.12)}
+.v11-pull{margin:0 0 2rem!important;padding:0 0 1.5rem;border-bottom:1px solid rgba(38,54,47,.25);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.55rem,2.6vw,2.35rem)!important;line-height:1.25;color:#26362f}
+.v9-about{background:#f5f0e7}
+.v9-about-grid{grid-template-columns:minmax(190px,250px) minmax(0,1fr)}
+.v11-about-figure{margin:0}
+.v11-about-figure img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 35%;border-radius:28px 28px 10px 28px;box-shadow:none}
+.v11-about-figure figcaption{margin-top:.7rem;font-size:.76rem;line-height:1.4;color:var(--muted)}
+.v9-about .about-copy{max-width:680px;font-size:1.08rem;line-height:1.7}
+.v9-langaa{position:relative;overflow:hidden}
+.v9-langaa::after{content:"LANGÅ";position:absolute;right:-.04em;bottom:-.22em;font-size:clamp(7rem,20vw,18rem);font-weight:800;letter-spacing:-.07em;opacity:.035;pointer-events:none}
+.v9-langaa-grid{position:relative;z-index:1}
+.v9-contact{background:#f7f2e9;border-top:1px solid rgba(38,54,47,.12)}
+.btn{border-radius:999px}
+@media(max-width:900px){.v11-deck{margin:0 0 2rem}.v10-journalism-story>img{width:200px!important;max-width:200px!important}}
+@media(max-width:650px){.v9-about-grid{grid-template-columns:1fr}.v11-about-figure{width:min(62vw,230px)}.v10-journalism-story>img{width:min(58vw,190px)!important}.v11-pull{font-size:1.55rem!important}}
