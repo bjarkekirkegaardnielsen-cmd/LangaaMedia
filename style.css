@@ -669,3 +669,170 @@ body{background:#f5f0e7}
 .btn{border-radius:999px}
 @media(max-width:900px){.v11-deck{margin:0 0 2rem}.v10-journalism-story>img{width:200px!important;max-width:200px!important}}
 @media(max-width:650px){.v9-about-grid{grid-template-columns:1fr}.v11-about-figure{width:min(62vw,230px)}.v10-journalism-story>img{width:min(58vw,190px)!important}.v11-pull{font-size:1.55rem!important}}
+
+
+/* =========================================================
+   V12 — mere helstøbt, redaktionel og visuelt rolig forside
+   ========================================================= */
+
+/* Overskrift/intro over de tre billeder som én rolig linje */
+.v11-deck{
+  max-width:none !important;
+  margin:-1.2rem 0 2.2rem !important;
+  white-space:nowrap;
+  font-size:clamp(1.05rem,1.45vw,1.28rem) !important;
+  color:#6a6d67;
+  letter-spacing:-.01em;
+}
+
+/* Tre historier: samme billedvægt, ingen kendisdominans */
+.v9-story-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:clamp(2rem,3.5vw,3.8rem) !important;
+  align-items:start;
+}
+
+.v12-story{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+/* Alle tre billeder får samme visuelle bredde.
+   Lars-billedet bliver IKKE gjort større end før. */
+.v12-story > img,
+.v10-journalism-story > img{
+  width:210px !important;
+  max-width:210px !important;
+  height:auto !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  margin:0 0 1.15rem !important;
+  border-radius:22px !important;
+  box-shadow:none !important;
+}
+
+/* De to øvrige billeder må gerne beskæres en anelse i højden,
+   men ikke vokse i bredde */
+.v12-story:not(.v10-journalism-story) > img{
+  width:210px !important;
+  max-width:210px !important;
+}
+
+/* Bedre teksthierarki under billederne */
+.v12-story .v9-story-copy{
+  width:100%;
+  margin-top:0 !important;
+  padding-top:1rem !important;
+  border-top:1px solid rgba(38,54,47,.20) !important;
+}
+
+.v12-story .v9-label{
+  margin-bottom:.5rem;
+  font-size:.68rem;
+}
+
+.v12-story h3{
+  max-width:290px;
+  font-size:clamp(1.35rem,1.75vw,1.65rem);
+  line-height:1.18;
+  margin-bottom:.65rem;
+}
+
+.v12-story p:not(.v9-label){
+  max-width:300px;
+  line-height:1.58;
+}
+
+/* Mere elegant sektionstitel */
+.v9-work .section-head{
+  margin-bottom:2.2rem;
+}
+
+.v9-work .section-head h2{
+  max-width:930px;
+}
+
+/* Gør hele arbejdssektionen lettere og mere magasinagtig */
+.v9-work{
+  padding-top:clamp(5rem,8vw,7rem);
+  padding-bottom:clamp(5rem,8vw,7rem);
+  background:
+    linear-gradient(180deg,#faf7f1 0%,#f6f1e8 100%);
+}
+
+/* Små visuelle detaljer */
+.v12-story .link-arrow{
+  margin-top:.25rem;
+  display:inline-block;
+}
+
+.v12-story img{
+  transition:transform .18s ease;
+}
+
+@media (hover:hover){
+  .v12-story:hover img{
+    transform:translateY(-2px);
+  }
+}
+
+/* Om-sektionen får lidt mere luft og mindre "kort"-fornemmelse */
+.v9-about{
+  padding-top:clamp(5rem,8vw,7rem);
+  padding-bottom:clamp(5rem,8vw,7rem);
+}
+
+.v11-about-figure img{
+  border-radius:26px 26px 12px 26px !important;
+}
+
+/* Kommunikationssektionen bliver varmere og lidt mere elegant */
+.v9-comm{
+  background:linear-gradient(135deg,#ece3d7 0%,#e6d9ca 100%) !important;
+}
+
+.v11-pull{
+  color:#304239 !important;
+}
+
+/* Kontaktsektionen som rolig afslutning */
+.v9-contact{
+  background:#f7f3ec !important;
+}
+
+/* Mobil: tillad linjeskift og én historie ad gangen */
+@media(max-width:900px){
+  .v11-deck{
+    white-space:normal;
+  }
+  .v9-story-grid{
+    grid-template-columns:1fr !important;
+    gap:2.8rem !important;
+  }
+  .v12-story{
+    display:grid;
+    grid-template-columns:210px minmax(0,1fr);
+    gap:1.5rem;
+    align-items:start;
+  }
+  .v12-story > img,
+  .v10-journalism-story > img{
+    margin:0 !important;
+  }
+  .v12-story .v9-story-copy{
+    margin-top:0 !important;
+  }
+}
+
+@media(max-width:620px){
+  .v12-story{
+    grid-template-columns:1fr;
+  }
+  .v12-story > img,
+  .v10-journalism-story > img{
+    width:min(62vw,210px) !important;
+    max-width:210px !important;
+  }
+}
