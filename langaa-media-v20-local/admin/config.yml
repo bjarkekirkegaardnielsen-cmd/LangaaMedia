@@ -1,0 +1,141 @@
+backend:
+  name: github
+  repo: bjarkekirkegaardnielsen-cmd/LangaaMedia
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+locale: "da"
+
+collections:
+  - name: "sider"
+    label: "Sider"
+    files:
+      - label: "Forside"
+        name: "forside"
+        file: "content/forside.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Fremhævet overskrift", name: "title_accent", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+          - { label: "Om-overskrift", name: "about_title", widget: "string" }
+          - { label: "Grundprincip", name: "principle", widget: "text" }
+          - { label: "Overskrift over ydelser", name: "work_title", widget: "string" }
+          - { label: "Om-overskrift", name: "about_title", widget: "string" }
+          - { label: "Om-tekst", name: "about_text", widget: "text" }
+          - { label: "Langåen-overskrift", name: "langaaen_title", widget: "string" }
+          - { label: "Langåen-tekst", name: "langaaen_text", widget: "text" }
+          - { label: "Kontaktoverskrift", name: "contact_title", widget: "string" }
+          - { label: "Kontakttekst", name: "contact_text", widget: "text" }
+          - { label: "Journalistikbillede", name: "journalistik_image", widget: "image" }
+          - { label: "Beskrivelse af journalistikbillede", name: "journalistik_image_alt", widget: "string" }
+          - { label: "Billede af Bjarke på arbejde", name: "about_image", widget: "image" }
+          - { label: "Beskrivelse af arbejdsbillede", name: "about_image_alt", widget: "string" }
+          - { label: "Langåen-billede", name: "langaaen_image", widget: "image" }
+          - { label: "Beskrivelse af Langåen-billede", name: "langaaen_image_alt", widget: "string" }
+          - { label: "Foredragsbillede", name: "foredrag_image", widget: "image" }
+          - { label: "Beskrivelse af foredragsbillede", name: "foredrag_image_alt", widget: "string" }
+
+      - label: "Om mig"
+        name: "om_mig"
+        file: "content/om-mig.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Indledning", name: "lead", widget: "text" }
+          - { label: "Mellemoverskrift", name: "subheading", widget: "string" }
+          - { label: "Portrætbillede", name: "image", widget: "image" }
+          - { label: "Billedbeskrivelse", name: "image_alt", widget: "string" }
+          - label: "Afsnit"
+            name: "body"
+            widget: "list"
+            field: { label: "Afsnit", name: "paragraph", widget: "text" }
+          - { label: "Afslutning", name: "closing", widget: "string" }
+
+      - label: "Journalistik"
+        name: "journalistik"
+        file: "content/journalistik.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+          - label: "Ydelser"
+            name: "services"
+            widget: "list"
+            field: { label: "Ydelse", name: "service", widget: "string" }
+          - { label: "Afslutning", name: "closing", widget: "text" }
+
+      - label: "Presse & kommunikation"
+        name: "presse"
+        file: "content/presse.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+          - label: "Ydelser"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Tekst", name: "text", widget: "text" }
+          - { label: "Afslutning", name: "closing", widget: "text" }
+
+      - label: "Langåen"
+        name: "langaaen"
+        file: "content/langaaen.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+          - { label: "Brødtekst", name: "body", widget: "text" }
+          - label: "Principper"
+            name: "principles"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Tekst", name: "text", widget: "text" }
+
+      - label: "Foredrag"
+        name: "foredrag"
+        file: "content/foredrag.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+          - { label: "Brødtekst", name: "body", widget: "text" }
+          - { label: "Om bogen", name: "book", widget: "text" }
+          - { label: "Citat", name: "quote", widget: "text" }
+          - { label: "Pris", name: "price", widget: "string" }
+          - label: "Målgrupper"
+            name: "audiences"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Tekst", name: "text", widget: "text" }
+
+      - label: "Kontakt"
+        name: "kontakt"
+        file: "content/kontakt.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+
+  - name: "indstillinger"
+    label: "Indstillinger"
+    files:
+      - label: "Kontaktoplysninger"
+        name: "kontaktoplysninger"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Sted", name: "location", widget: "string" }

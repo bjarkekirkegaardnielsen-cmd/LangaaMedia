@@ -1,0 +1,1910 @@
+
+:root{
+  --paper:#f3efe8;
+  --paper-2:#ebe5da;
+  --ink:#151817;
+  --muted:#666b67;
+  --line:#d5cec1;
+  --rust:#a94d34;
+  --green:#173a2b;
+  --white:#fff;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:17px;
+  line-height:1.55;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-underline-offset:.18em}
+.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+.site-header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(243,239,232,.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+.header-inner{
+  min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:30px
+}
+.brand{
+  text-decoration:none;font-weight:800;letter-spacing:-.055em;line-height:.84;font-size:1.28rem
+}
+.brand span{display:block}
+.brand small{display:block;font-size:.58em;letter-spacing:.18em;margin-top:.42em}
+.nav{display:flex;gap:25px;align-items:center}
+.nav a{text-decoration:none;font-size:.9rem}
+.nav a:hover,.nav a.active{color:var(--rust)}
+.menu-btn{
+  display:none;background:none;border:0;font:inherit;font-weight:700;padding:10px 0
+}
+.hero{
+  min-height:77vh;
+  display:grid;align-items:center;
+  border-bottom:1px solid var(--line)
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:7vw;align-items:end;padding:10vh 0}
+.kicker{
+  margin:0 0 24px;
+  font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em
+}
+h1,h2,h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;
+  letter-spacing:-.04em;
+  line-height:1.04;
+}
+h1{font-size:clamp(3.7rem,7.5vw,8rem);margin:0 0 32px}
+h2{font-size:clamp(2.5rem,5vw,5rem);margin:0 0 34px}
+h3{font-size:1.65rem;margin:.2em 0 .55em}
+.hero-copy{font-size:1.22rem;max-width:700px}
+.hero-note{
+  border-top:3px solid var(--ink);padding-top:20px;font-size:1.05rem
+}
+.hero-note strong{display:block;font-size:1.22rem;margin-bottom:8px}
+.actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.btn{
+  display:inline-flex;min-height:50px;align-items:center;justify-content:center;
+  padding:0 20px;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700
+}
+.btn:hover{background:var(--rust)}
+.link-arrow{text-decoration:none;font-weight:700}
+.link-arrow::after{content:" →";color:var(--rust)}
+.section{padding:10vh 0;border-bottom:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:1fr 4fr;gap:5vw;margin-bottom:56px}
+.section-index{
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;font-weight:800;padding-top:10px
+}
+.section-head h2{max-width:950px}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.service{
+  padding:30px 25px 28px 0;border-bottom:1px solid var(--line);
+  min-height:280px
+}
+.service+.service{padding-left:25px;border-left:1px solid var(--line)}
+.service-num{color:var(--rust);font-weight:800;font-size:.8rem}
+.service p{color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:8vw;align-items:start}
+.about-copy{font-size:1.16rem}
+.fact-list{border-top:1px solid var(--line)}
+.fact{padding:20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:130px 1fr;gap:20px}
+.fact strong{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em}
+.dark{background:var(--green);color:var(--paper)}
+.dark .section{border-color:rgba(255,255,255,.18)}
+.dark .muted{color:#c8d0cb}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center}
+.feature-copy{font-size:1.16rem}
+.quote{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.2rem,4.3vw,4.4rem);
+  line-height:1.12;letter-spacing:-.035em;color:#f2b098
+}
+.page-hero{padding:10vh 0 8vh;border-bottom:1px solid var(--line)}
+.page-hero h1{font-size:clamp(3.5rem,7vw,7rem);max-width:1000px}
+.page-hero p{font-size:1.25rem;max-width:760px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:7vw}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border-top:3px solid var(--ink);padding-top:20px}
+.card p{color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:8vw}
+form{display:grid;gap:18px}
+label{font-weight:700;font-size:.92rem}
+input,textarea{
+  width:100%;border:1px solid #bbb2a4;background:#faf7f1;
+  padding:14px 15px;font:inherit;border-radius:0
+}
+textarea{min-height:170px;resize:vertical}
+button.btn{border:0;cursor:pointer;width:max-content}
+.notice{font-size:.9rem;color:var(--muted)}
+.footer{background:var(--ink);color:var(--paper);padding:54px 0}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}
+.footer a{color:var(--paper)}
+.footer p{margin:.2em 0;color:#c6cbc7}
+.editorial-rule{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.8rem,3vw,3.1rem);line-height:1.2;max-width:900px
+}
+.accent{color:var(--rust)}
+.list-clean{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.list-clean li{padding:18px 0;border-bottom:1px solid var(--line)}
+@media(max-width:900px){
+  .menu-btn{display:block}
+  .nav{
+    display:none;position:absolute;left:0;right:0;top:82px;background:var(--paper);
+    padding:25px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start
+  }
+  .nav.open{display:flex}
+  .hero-grid,.about-grid,.feature-grid,.contact-grid,.two-col{grid-template-columns:1fr}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .service:nth-child(odd){border-left:0;padding-left:0}
+  .section-head{grid-template-columns:1fr;gap:20px}
+  .cards{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  body{font-size:16px}
+  .wrap{width:min(calc(100% - 32px),var(--max))}
+  .hero-grid{padding:8vh 0}
+  h1{font-size:clamp(3.1rem,15vw,5rem)}
+  .service-grid{grid-template-columns:1fr}
+  .service,.service+.service{border-left:0;padding-left:0}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+.about-portrait{
+  width:100%;
+  max-width:500px;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  object-position:center 30%;
+  border:1px solid var(--line);
+}
+.about-photo-wrap{display:flex;align-items:flex-start}
+@media(max-width:900px){.about-portrait{max-width:420px}}
+
+.home-about{align-items:center}
+.light-btn{background:var(--paper)!important;color:var(--ink)!important}
+.light-btn:hover{background:#fff!important}
+
+.editorial-photo-section{padding:0 0 3.5rem}
+.editorial-photo{margin:0}
+.editorial-photo img{display:block;width:100%;height:auto}
+.editorial-photo-wide img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:center 45%}
+.editorial-photo figcaption{font-size:.78rem;margin-top:.55rem;opacity:.65}
+.home-work-photo{display:block;width:100%;max-width:470px;aspect-ratio:4/5;object-fit:cover;object-position:center 35%}
+.service-with-photo{grid-row:span 2}
+.service-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:1.25rem}
+.langaa-visual{display:grid;gap:1.4rem}
+.langaa-visual img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.foredrag-photo-band{padding-top:0}
+.foredrag-photo-band .editorial-photo{max-width:820px}
+@media(max-width:800px){
+ .editorial-photo-wide img{aspect-ratio:4/3}
+ .home-work-photo{max-width:none;aspect-ratio:4/5}
+}
+
+
+/* v6: blødere billedkanter uden at gøre siden til et kort-design */
+:root{
+  --image-radius: 12px;
+}
+
+.editorial-photo img,
+.editorial-photo-wide img,
+.home-work-photo,
+.service-photo,
+.langaa-visual img,
+.about-portrait,
+.foredrag-photo-band img {
+  border-radius: var(--image-radius);
+}
+
+/* Originalfotoet med Lars Løkke vises uden billedmanipulation eller hård beskæring */
+.editorial-photo-wide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* En anelse blødere visning af øvrige billeder */
+.home-work-photo,
+.service-photo,
+.langaa-visual img {
+  overflow: hidden;
+}
+
+/* Foredragsbilledet fra boghandlen får mere højde, så publikum og rummet kan aflæses */
+.service-with-photo .service-photo {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+@media (max-width: 800px){
+  .editorial-photo-wide img {
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+}
+
+/* v7: Lars Løkke-fotoet vises i originalt billedformat uden beskæring */
+.editorial-photo-wide img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+
+/* =========================================================
+   V8 — blødere, mere redaktionelt billedhierarki
+   ========================================================= */
+
+:root {
+  --image-radius: 24px;
+  --soft-surface: rgba(244, 240, 230, .72);
+  --soft-surface-2: rgba(236, 231, 218, .52);
+}
+
+/* Fotografier skal føles som en del af fladen, ikke som firkantede kort */
+.editorial-photo img,
+.editorial-photo-wide img,
+.home-work-photo,
+.service-photo,
+.langaa-visual img,
+.about-portrait,
+.foredrag-photo-band img {
+  border-radius: var(--image-radius) !important;
+}
+
+.editorial-photo img,
+.home-work-photo,
+.service-photo,
+.langaa-visual img {
+  box-shadow: 0 14px 34px rgba(31, 45, 38, .07);
+}
+
+/* Interviewfoto: mindre, originalt format og forskudt mod højre */
+.editorial-photo-section {
+  padding: .5rem 0 4.5rem;
+}
+
+.editorial-photo-wide {
+  width: min(68%, 820px);
+  margin-left: auto;
+  margin-right: 4%;
+}
+
+.editorial-photo-wide img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.editorial-photo-wide figcaption {
+  padding-left: .25rem;
+  margin-top: .75rem;
+}
+
+/* Ydelserne skal være lettere og mindre "kort-grid" */
+.service-grid {
+  gap: 1.25rem;
+}
+
+.service {
+  border-radius: 18px;
+}
+
+.service-with-photo .service-photo {
+  border-radius: 20px !important;
+}
+
+/* Om Bjarke: tekst dominerer, arbejdsbilledet er et mindre miljøportræt */
+.home-about {
+  grid-template-columns: minmax(250px, 320px) minmax(0, 1fr) !important;
+  gap: clamp(2.5rem, 7vw, 7rem) !important;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.home-about .about-photo-wrap {
+  justify-content: flex-end;
+}
+
+.home-work-photo {
+  width: min(100%, 310px) !important;
+  max-width: 310px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+}
+
+/* Langåen: fotografiet får en roligere, blødere placering */
+.langaa-visual {
+  gap: 1.75rem;
+}
+
+.langaa-visual img {
+  border-radius: 22px !important;
+  max-width: 520px;
+  justify-self: end;
+}
+
+/* Skab rytme uden at gøre alle sektioner til kort */
+#arbejde {
+  background:
+    linear-gradient(180deg, transparent 0%, var(--soft-surface) 16%, var(--soft-surface) 84%, transparent 100%);
+}
+
+.home-about {
+  position: relative;
+}
+
+.home-about::before {
+  content: "";
+  position: absolute;
+  inset: -2rem -3rem;
+  background: var(--soft-surface-2);
+  border-radius: 36px;
+  z-index: -1;
+}
+
+/* Foredragsfoto fra boghandlen: behold miljøet og giv det lidt mere ro */
+.service-with-photo .service-photo {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  object-position: center 44%;
+}
+
+/* På mindre skærme skal hierarkiet stadig være roligt */
+@media (max-width: 900px) {
+  .editorial-photo-wide {
+    width: min(88%, 760px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-about {
+    grid-template-columns: minmax(210px, 280px) minmax(0, 1fr) !important;
+    gap: 2.5rem !important;
+  }
+
+  .home-work-photo {
+    max-width: 270px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --image-radius: 18px;
+  }
+
+  .editorial-photo-wide {
+    width: 100%;
+    margin: 0;
+  }
+
+  .home-about {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-about::before {
+    inset: -1.25rem -1rem;
+    border-radius: 26px;
+  }
+
+  .home-about .about-photo-wrap {
+    justify-content: flex-start;
+  }
+
+  .home-work-photo {
+    width: min(72vw, 280px) !important;
+    max-width: 280px !important;
+  }
+}
+
+.legacy-anchor{display:block;position:relative;top:-90px;visibility:hidden}
+
+
+/* =========================================================
+   V9 — helt ny forside
+   Tekstbåret, roligere og uden ét dominerende kendisfoto
+   ========================================================= */
+
+.v9-hero{
+  padding:clamp(5rem,10vw,9rem) 0 clamp(4rem,8vw,7rem);
+  border-bottom:1px solid var(--line);
+}
+.v9-hero-inner h1{
+  max-width:1050px;
+  margin-bottom:3.5rem;
+}
+.v9-hero-bottom{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
+  gap:clamp(2rem,7vw,7rem);
+  align-items:start;
+}
+.v9-principle{
+  border-top:2px solid var(--ink);
+  padding-top:1rem;
+  margin:0;
+  max-width:420px;
+  font-size:1.02rem;
+}
+.v9-work{
+  background:var(--paper);
+}
+.v9-story-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(1.4rem,2.5vw,2.4rem);
+}
+.v9-story{
+  min-width:0;
+}
+.v9-story img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:26px;
+  box-shadow:0 12px 28px rgba(23,32,25,.06);
+}
+.v9-story:first-child img{
+  object-position:center;
+}
+.v9-story-copy{
+  padding:.9rem .15rem 0;
+}
+.v9-label{
+  margin:0 0 .35rem;
+  font-size:.72rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  color:var(--rust);
+}
+.v9-story h3{
+  margin:.1rem 0 .55rem;
+  font-size:clamp(1.45rem,2vw,1.9rem);
+}
+.v9-story p:not(.v9-label){
+  color:var(--muted);
+  margin:.25rem 0 .75rem;
+}
+.v9-comm{
+  background:#ece6dc;
+}
+.v9-comm-grid,
+.v9-contact-grid,
+.v9-langaa-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(3rem,8vw,8rem);
+  align-items:start;
+}
+.v9-comm-copy{
+  padding-top:.6rem;
+  font-size:1.12rem;
+}
+.v9-about{
+  background:var(--paper);
+}
+.v9-about-grid{
+  display:grid;
+  grid-template-columns:minmax(220px,290px) minmax(0,1fr);
+  gap:clamp(3rem,8vw,8rem);
+  align-items:center;
+}
+.v9-about-image img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  object-position:center 35%;
+  border-radius:50%;
+  box-shadow:0 14px 30px rgba(23,32,25,.08);
+}
+.v9-about h2{
+  margin-bottom:1.2rem;
+}
+.v9-langaa{
+  padding:clamp(5rem,9vw,8rem) 0;
+}
+.v9-langaa h2{
+  margin-bottom:0;
+}
+.v9-quote{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.9rem,3vw,3rem);
+  line-height:1.18;
+  margin:2rem 0;
+  color:#f0b19b;
+}
+.v9-contact{
+  background:#f1ece4;
+}
+.v9-contact h2{
+  margin-bottom:0;
+}
+
+/* Mere konsekvent, blød billedbehandling */
+.v9-story img,
+.v9-about-image img{
+  transition:transform .2s ease;
+}
+@media (hover:hover){
+  .v9-story:hover img{
+    transform:translateY(-2px);
+  }
+}
+
+/* Fjern visuel indflydelse fra tidligere v8-regler på den nye forside */
+.v9-work .service-grid,
+.v9-work .service,
+.v9-about .home-about,
+.v9-about .about-photo-wrap{
+  all:unset;
+}
+
+@media(max-width:900px){
+  .v9-story-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .v9-story:last-child{
+    grid-column:1 / -1;
+    max-width:520px;
+  }
+  .v9-hero-bottom,
+  .v9-comm-grid,
+  .v9-contact-grid,
+  .v9-langaa-grid{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+}
+@media(max-width:650px){
+  .v9-story-grid{
+    grid-template-columns:1fr;
+  }
+  .v9-story:last-child{
+    grid-column:auto;
+    max-width:none;
+  }
+  .v9-about-grid{
+    grid-template-columns:1fr;
+  }
+  .v9-about-image{
+    width:min(58vw,240px);
+  }
+  .v9-story img{
+    border-radius:20px;
+  }
+}
+
+
+/* =========================================================
+   V10 — Lars Løkke-billedet skal være et lille arbejdsfoto,
+   ikke et hovedmotiv. De øvrige billeder ændres ikke.
+   ========================================================= */
+
+.v10-journalism-story {
+  display: block;
+}
+
+/* Kun dette ene billede bliver mindre */
+.v10-journalism-story > img {
+  width: min(62%, 250px) !important;
+  max-width: 250px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: 0 0 1rem 0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 24px rgba(23,32,25,.055) !important;
+}
+
+/* Hold kortet visuelt let, så billedet ikke får uforholdsmæssig vægt */
+.v10-journalism-story .v9-story-copy {
+  padding-top: 0;
+}
+
+/* De andre v9-story-billeder beholder deres størrelse fra v9 */
+.v9-story:not(.v10-journalism-story) > img {
+  width: 100%;
+}
+
+@media(max-width:900px){
+  .v10-journalism-story > img {
+    width: min(54%, 230px) !important;
+    max-width: 230px !important;
+  }
+}
+
+@media(max-width:650px){
+  .v10-journalism-story > img {
+    width: min(68vw, 220px) !important;
+    max-width: 220px !important;
+  }
+}
+
+/* V11: varmere, mere redaktionel forside */
+body{background:#f5f0e7}
+.v9-hero{background:radial-gradient(circle at 82% 18%,rgba(184,95,67,.075),transparent 27rem),#f5f0e7}
+.v9-hero-inner h1{letter-spacing:-.035em}
+.v9-hero .hero-copy{font-size:clamp(1.08rem,1.6vw,1.28rem);line-height:1.65}
+.v9-principle{border-top:1px solid rgba(38,54,47,.45);font-family:Georgia,"Times New Roman",serif;font-size:1.12rem;line-height:1.55}
+.v9-work{background:#faf7f1}
+.v11-deck{max-width:650px;margin:-1.4rem 0 2.4rem auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.2rem,1.8vw,1.55rem);line-height:1.45;color:var(--muted)}
+.v9-story{background:transparent!important;border:none!important;box-shadow:none!important}
+.v9-story img{border-radius:22px;box-shadow:none}
+.v9-story-copy{border-top:1px solid rgba(38,54,47,.18);margin-top:1rem;padding-top:1rem}
+.v9-story h3{font-family:Georgia,"Times New Roman",serif;font-weight:500;line-height:1.15}
+.v10-journalism-story>img{width:210px!important;max-width:210px!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;border-radius:18px!important;box-shadow:none!important}
+.v9-comm{background:#ebe2d5;border-top:1px solid rgba(38,54,47,.12);border-bottom:1px solid rgba(38,54,47,.12)}
+.v11-pull{margin:0 0 2rem!important;padding:0 0 1.5rem;border-bottom:1px solid rgba(38,54,47,.25);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.55rem,2.6vw,2.35rem)!important;line-height:1.25;color:#26362f}
+.v9-about{background:#f5f0e7}
+.v9-about-grid{grid-template-columns:minmax(190px,250px) minmax(0,1fr)}
+.v11-about-figure{margin:0}
+.v11-about-figure img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 35%;border-radius:28px 28px 10px 28px;box-shadow:none}
+.v11-about-figure figcaption{margin-top:.7rem;font-size:.76rem;line-height:1.4;color:var(--muted)}
+.v9-about .about-copy{max-width:680px;font-size:1.08rem;line-height:1.7}
+.v9-langaa{position:relative;overflow:hidden}
+.v9-langaa::after{content:"LANGÅ";position:absolute;right:-.04em;bottom:-.22em;font-size:clamp(7rem,20vw,18rem);font-weight:800;letter-spacing:-.07em;opacity:.035;pointer-events:none}
+.v9-langaa-grid{position:relative;z-index:1}
+.v9-contact{background:#f7f2e9;border-top:1px solid rgba(38,54,47,.12)}
+.btn{border-radius:999px}
+@media(max-width:900px){.v11-deck{margin:0 0 2rem}.v10-journalism-story>img{width:200px!important;max-width:200px!important}}
+@media(max-width:650px){.v9-about-grid{grid-template-columns:1fr}.v11-about-figure{width:min(62vw,230px)}.v10-journalism-story>img{width:min(58vw,190px)!important}.v11-pull{font-size:1.55rem!important}}
+
+
+/* =========================================================
+   V12 — mere helstøbt, redaktionel og visuelt rolig forside
+   ========================================================= */
+
+/* Overskrift/intro over de tre billeder som én rolig linje */
+.v11-deck{
+  max-width:none !important;
+  margin:-1.2rem 0 2.2rem !important;
+  white-space:nowrap;
+  font-size:clamp(1.05rem,1.45vw,1.28rem) !important;
+  color:#6a6d67;
+  letter-spacing:-.01em;
+}
+
+/* Tre historier: samme billedvægt, ingen kendisdominans */
+.v9-story-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:clamp(2rem,3.5vw,3.8rem) !important;
+  align-items:start;
+}
+
+.v12-story{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+/* Alle tre billeder får samme visuelle bredde.
+   Lars-billedet bliver IKKE gjort større end før. */
+.v12-story > img,
+.v10-journalism-story > img{
+  width:210px !important;
+  max-width:210px !important;
+  height:auto !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  margin:0 0 1.15rem !important;
+  border-radius:22px !important;
+  box-shadow:none !important;
+}
+
+/* De to øvrige billeder må gerne beskæres en anelse i højden,
+   men ikke vokse i bredde */
+.v12-story:not(.v10-journalism-story) > img{
+  width:210px !important;
+  max-width:210px !important;
+}
+
+/* Bedre teksthierarki under billederne */
+.v12-story .v9-story-copy{
+  width:100%;
+  margin-top:0 !important;
+  padding-top:1rem !important;
+  border-top:1px solid rgba(38,54,47,.20) !important;
+}
+
+.v12-story .v9-label{
+  margin-bottom:.5rem;
+  font-size:.68rem;
+}
+
+.v12-story h3{
+  max-width:290px;
+  font-size:clamp(1.35rem,1.75vw,1.65rem);
+  line-height:1.18;
+  margin-bottom:.65rem;
+}
+
+.v12-story p:not(.v9-label){
+  max-width:300px;
+  line-height:1.58;
+}
+
+/* Mere elegant sektionstitel */
+.v9-work .section-head{
+  margin-bottom:2.2rem;
+}
+
+.v9-work .section-head h2{
+  max-width:930px;
+}
+
+/* Gør hele arbejdssektionen lettere og mere magasinagtig */
+.v9-work{
+  padding-top:clamp(5rem,8vw,7rem);
+  padding-bottom:clamp(5rem,8vw,7rem);
+  background:
+    linear-gradient(180deg,#faf7f1 0%,#f6f1e8 100%);
+}
+
+/* Små visuelle detaljer */
+.v12-story .link-arrow{
+  margin-top:.25rem;
+  display:inline-block;
+}
+
+.v12-story img{
+  transition:transform .18s ease;
+}
+
+@media (hover:hover){
+  .v12-story:hover img{
+    transform:translateY(-2px);
+  }
+}
+
+/* Om-sektionen får lidt mere luft og mindre "kort"-fornemmelse */
+.v9-about{
+  padding-top:clamp(5rem,8vw,7rem);
+  padding-bottom:clamp(5rem,8vw,7rem);
+}
+
+.v11-about-figure img{
+  border-radius:26px 26px 12px 26px !important;
+}
+
+/* Kommunikationssektionen bliver varmere og lidt mere elegant */
+.v9-comm{
+  background:linear-gradient(135deg,#ece3d7 0%,#e6d9ca 100%) !important;
+}
+
+.v11-pull{
+  color:#304239 !important;
+}
+
+/* Kontaktsektionen som rolig afslutning */
+.v9-contact{
+  background:#f7f3ec !important;
+}
+
+/* Mobil: tillad linjeskift og én historie ad gangen */
+@media(max-width:900px){
+  .v11-deck{
+    white-space:normal;
+  }
+  .v9-story-grid{
+    grid-template-columns:1fr !important;
+    gap:2.8rem !important;
+  }
+  .v12-story{
+    display:grid;
+    grid-template-columns:210px minmax(0,1fr);
+    gap:1.5rem;
+    align-items:start;
+  }
+  .v12-story > img,
+  .v10-journalism-story > img{
+    margin:0 !important;
+  }
+  .v12-story .v9-story-copy{
+    margin-top:0 !important;
+  }
+}
+
+@media(max-width:620px){
+  .v12-story{
+    grid-template-columns:1fr;
+  }
+  .v12-story > img,
+  .v10-journalism-story > img{
+    width:min(62vw,210px) !important;
+    max-width:210px !important;
+  }
+}
+
+
+/* =========================================================
+   V13 — redaktionel 70'er-retro
+   Inspireret af skandinaviske magasiner, aviser og plakater.
+   Ikke pastiche: varm papirflade, oliven, rust og sennep.
+   ========================================================= */
+
+:root{
+  --retro-paper:#eee4cf;
+  --retro-paper-light:#f5eddc;
+  --retro-olive:#394638;
+  --retro-olive-dark:#26332b;
+  --retro-rust:#a84e32;
+  --retro-mustard:#c39a3a;
+  --retro-brown:#5b4635;
+  --retro-line:#b8a98e;
+  --retro-muted:#706657;
+}
+
+body{
+  background:var(--retro-paper) !important;
+  color:var(--retro-olive-dark);
+}
+
+/* Masthead: lidt avis, lidt magasin */
+.v13-mastline{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:1rem;
+  padding:.7rem 0;
+  margin-bottom:clamp(3rem,6vw,5rem);
+  border-top:3px solid var(--retro-olive-dark);
+  border-bottom:1px solid var(--retro-olive-dark);
+  font-size:.68rem;
+  line-height:1;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+}
+.v13-mastline span:nth-child(2){text-align:center}
+.v13-mastline span:last-child{text-align:right}
+.v13-hidden-kicker{display:none}
+
+.v13-hero{
+  background:var(--retro-paper) !important;
+  border-bottom:0;
+  padding-top:2.4rem;
+}
+.v13-hero h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:700;
+  line-height:.94;
+  letter-spacing:-.055em !important;
+  color:var(--retro-olive-dark);
+}
+.v13-hero h1 .accent{
+  color:var(--retro-rust) !important;
+  font-style:italic;
+}
+.v9-hero .hero-copy{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.08rem,1.55vw,1.25rem);
+  line-height:1.62;
+}
+.v9-principle{
+  color:var(--retro-brown);
+  border-top:4px solid var(--retro-mustard);
+  padding-top:1rem;
+}
+
+/* Retro knapper: mindre SaaS, mere tryksag */
+.btn{
+  border-radius:3px !important;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.72rem;
+  font-weight:800;
+  box-shadow:3px 3px 0 var(--retro-mustard);
+}
+.link-arrow{
+  font-weight:700;
+  text-decoration-thickness:1px;
+}
+
+/* Sektioner */
+.v9-work{
+  background:var(--retro-paper-light) !important;
+  border-top:1px solid var(--retro-line);
+  border-bottom:1px solid var(--retro-line);
+}
+.section-index,
+.kicker,
+.v9-label{
+  color:var(--retro-rust) !important;
+  font-weight:900;
+  letter-spacing:.15em !important;
+}
+.v9-work .section-head h2,
+.v9-comm h2,
+.v9-about h2,
+.v9-contact h2{
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--retro-olive-dark);
+  letter-spacing:-.035em;
+}
+.v11-deck{
+  font-style:italic;
+  color:var(--retro-muted) !important;
+}
+
+/* De tre små arbejdsfotos som avisfotos */
+.v12-story > img,
+.v10-journalism-story > img{
+  border-radius:8px !important;
+  border:1px solid rgba(91,70,53,.18);
+  filter:sepia(.08) saturate(.88) contrast(.98);
+}
+.v12-story .v9-story-copy{
+  border-top:3px solid var(--retro-olive) !important;
+}
+.v12-story h3{
+  color:var(--retro-olive-dark);
+}
+.v9-label{
+  color:var(--retro-rust) !important;
+}
+
+/* Presse: sennepsfarvet magasinflade */
+.v9-comm{
+  background:#d7bb72 !important;
+  border:0;
+}
+.v9-comm .kicker{
+  color:var(--retro-olive-dark) !important;
+}
+.v11-pull{
+  color:var(--retro-olive-dark) !important;
+  border-bottom:1px solid rgba(38,51,43,.45);
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;
+}
+
+/* Personen bag: papir og et foto, der føles mere som redaktionelt arkiv */
+.v9-about{
+  background:var(--retro-paper) !important;
+}
+.v11-about-figure img{
+  border-radius:10px 10px 3px 10px !important;
+  filter:sepia(.07) saturate(.9);
+  border:1px solid rgba(91,70,53,.18);
+}
+.v11-about-figure figcaption{
+  color:var(--retro-muted);
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;
+}
+
+/* Langåen: mørk oliven med stor typografisk baggrund */
+.v9-langaa{
+  background:var(--retro-olive-dark) !important;
+  border-top:8px solid var(--retro-rust);
+}
+.v9-langaa::after{
+  content:"LANGÅ" !important;
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;
+  opacity:.055;
+}
+.v9-langaa .kicker{
+  color:#d7bb72 !important;
+}
+.v9-langaa h2{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#f4ead5;
+  letter-spacing:-.04em;
+}
+.v9-quote{
+  color:#e1a16e !important;
+  font-style:italic;
+}
+
+/* Kontakt: varm rustfarvet bund, som gammel plakat */
+.v9-contact{
+  background:#b9684d !important;
+  border:0;
+  color:#f7eedc;
+}
+.v9-contact .kicker{
+  color:#f0d38e !important;
+}
+.v9-contact h2,
+.v9-contact .feature-copy{
+  color:#f7eedc !important;
+}
+.v9-contact .btn{
+  background:var(--retro-olive-dark) !important;
+  color:#f7eedc !important;
+  box-shadow:3px 3px 0 #e2bd68;
+}
+
+/* Header/nav integreres i paletten */
+header,
+.site-header{
+  background:rgba(238,228,207,.96) !important;
+  border-bottom-color:var(--retro-line) !important;
+}
+nav a{
+  color:var(--retro-olive-dark);
+}
+
+/* Små tryksagsdetaljer */
+.v9-story-copy p,
+.v9-comm-copy p,
+.v9-contact .feature-copy{
+  line-height:1.62;
+}
+.v9-story-grid{
+  position:relative;
+}
+.v9-story-grid::before{
+  content:"LANGÅ MEDIA / 01";
+  position:absolute;
+  top:-2rem;
+  right:0;
+  font-size:.58rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  color:var(--retro-muted);
+}
+
+/* Mobil */
+@media(max-width:700px){
+  .v13-mastline{
+    grid-template-columns:1fr auto;
+  }
+  .v13-mastline span:nth-child(2){display:none}
+  .v13-hero h1{line-height:1}
+}
+
+
+/* =========================================================
+   V14 — 70'er redaktionel magasinudgave
+   Mere asymmetri, mindre webgrid, tydeligere typografisk hierarki
+   ========================================================= */
+
+/* HERO */
+.v14-hero-title h1{
+  margin-bottom:.35rem !important;
+}
+.v14-hero-subline{
+  margin:0 0 2.7rem;
+  max-width:760px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;
+  font-size:clamp(1.75rem,3.2vw,3rem);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  color:var(--retro-rust);
+}
+.v13-hero .v9-hero-bottom{
+  margin-top:.8rem;
+}
+
+/* En smal tryksagslinje mellem hero og arbejde */
+.v14-rule{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:1rem;
+  padding:.75rem 0;
+  border-top:1px solid var(--retro-olive-dark);
+  border-bottom:1px solid var(--retro-olive-dark);
+  font-size:.6rem;
+  font-weight:900;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:var(--retro-brown);
+}
+.v14-rule span:nth-child(2){text-align:center}
+.v14-rule span:last-child{text-align:right}
+
+/* WORK SECTION: fra tre webkort til et redaktionelt opslag */
+.v14-editorial-grid{
+  display:grid !important;
+  grid-template-columns:1.05fr .95fr;
+  grid-template-areas:
+    "a b"
+    "a c";
+  column-gap:clamp(3rem,7vw,7rem) !important;
+  row-gap:clamp(2.8rem,5vw,4.5rem) !important;
+  align-items:start;
+}
+.v14-story{
+  display:grid !important;
+  grid-template-columns:210px minmax(0,1fr);
+  gap:1.35rem;
+  align-items:start;
+}
+.v14-story-a{grid-area:a}
+.v14-story-b{grid-area:b}
+.v14-story-c{grid-area:c}
+
+.v14-story-a{
+  grid-template-columns:210px minmax(0,1fr);
+  align-self:start;
+  padding-right:1rem;
+}
+.v14-story-b,
+.v14-story-c{
+  grid-template-columns:180px minmax(0,1fr);
+}
+
+/* billederne forbliver små */
+.v14-story > img,
+.v14-story-a > img,
+.v14-story-b > img,
+.v14-story-c > img{
+  width:100% !important;
+  max-width:none !important;
+  height:auto !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  margin:0 !important;
+  border-radius:7px !important;
+  filter:sepia(.08) saturate(.86) contrast(.98);
+  border:1px solid rgba(91,70,53,.2);
+}
+.v14-story-b > img,
+.v14-story-c > img{
+  width:180px !important;
+  max-width:180px !important;
+}
+.v14-story-a > img{
+  width:210px !important;
+  max-width:210px !important;
+}
+
+/* Teksten er mere avis-/magasinagtig */
+.v14-story .v9-story-copy{
+  margin:0 !important;
+  padding:.9rem 0 0 !important;
+  border-top:3px solid var(--retro-olive-dark) !important;
+}
+.v14-story h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.4rem,1.9vw,1.8rem);
+  line-height:1.08;
+  margin:.15rem 0 .55rem;
+}
+.v14-story p:not(.v9-label){
+  font-size:.98rem;
+  line-height:1.58;
+}
+
+/* Den lille linje over billederne skal være én linje og mere diskret */
+.v11-deck{
+  margin:-1rem 0 2.3rem !important;
+  white-space:nowrap;
+  font-size:1.05rem !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-style:normal !important;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--retro-muted) !important;
+}
+
+/* Sektionstitlen får avisrubrik-karakter */
+.v9-work .section-head{
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr);
+  gap:2rem;
+  margin-bottom:2.1rem;
+}
+.v9-work .section-head h2{
+  max-width:860px;
+  font-size:clamp(2.5rem,4.5vw,4.8rem);
+  line-height:.98;
+}
+
+/* Presse som et 70'er magasinopslag */
+.v14-band{
+  position:relative;
+  overflow:hidden;
+}
+.v14-band::before{
+  content:"02";
+  position:absolute;
+  left:-.02em;
+  top:-.25em;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(7rem,18vw,15rem);
+  line-height:1;
+  font-weight:700;
+  color:rgba(38,51,43,.07);
+}
+.v14-band .wrap{
+  position:relative;
+  z-index:1;
+}
+.v11-pull{
+  font-size:clamp(1.8rem,3vw,2.8rem) !important;
+  line-height:1.12;
+  margin-bottom:2.2rem !important;
+}
+
+/* Om mig som opslag på varmt papir */
+.v14-paper-section{
+  background:#f0e4cf !important;
+  border-top:1px solid var(--retro-line);
+  border-bottom:1px solid var(--retro-line);
+}
+.v14-paper-section .v9-about-grid{
+  grid-template-columns:230px minmax(0,1fr);
+}
+.v14-paper-section h2{
+  font-size:clamp(2.8rem,4.5vw,4.8rem);
+}
+.v11-about-figure img{
+  border-radius:5px !important;
+}
+
+/* Langåen: mere magasin end websektion */
+.v9-langaa{
+  padding-top:clamp(5rem,8vw,7rem);
+  padding-bottom:clamp(5rem,8vw,7rem);
+}
+.v9-langaa-grid{
+  grid-template-columns:.9fr 1.1fr;
+}
+.v9-langaa h2{
+  font-size:clamp(3rem,5.3vw,5.5rem);
+}
+
+/* Kontakt afsluttes som en retro annonceflade */
+.v14-contact{
+  border-top:8px solid var(--retro-olive-dark);
+}
+.v14-contact h2{
+  font-size:clamp(2.8rem,4.8vw,5rem);
+}
+.v14-contact .btn{
+  box-shadow:4px 4px 0 #e2bd68 !important;
+}
+
+/* Desktop finesse */
+@media(min-width:1000px){
+  .v14-story-b{
+    margin-top:1.3rem;
+  }
+  .v14-story-c{
+    margin-left:2.3rem;
+  }
+}
+
+/* Tablet */
+@media(max-width:950px){
+  .v14-editorial-grid{
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "a"
+      "b"
+      "c";
+  }
+  .v14-story,
+  .v14-story-a,
+  .v14-story-b,
+  .v14-story-c{
+    grid-template-columns:190px minmax(0,1fr);
+    margin:0 !important;
+  }
+  .v14-story > img,
+  .v14-story-a > img,
+  .v14-story-b > img,
+  .v14-story-c > img{
+    width:190px !important;
+    max-width:190px !important;
+  }
+  .v11-deck{
+    white-space:normal;
+  }
+}
+
+/* Mobil */
+@media(max-width:650px){
+  .v13-mastline,
+  .v14-rule{
+    grid-template-columns:1fr auto;
+  }
+  .v14-rule span:nth-child(2){
+    display:none;
+  }
+  .v14-story,
+  .v14-story-a,
+  .v14-story-b,
+  .v14-story-c{
+    grid-template-columns:1fr;
+  }
+  .v14-story > img,
+  .v14-story-a > img,
+  .v14-story-b > img,
+  .v14-story-c > img{
+    width:min(62vw,190px) !important;
+    max-width:190px !important;
+  }
+  .v9-work .section-head{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* =========================================================
+   V15 — rigtige billeder + færdigere redaktionel komposition
+   ========================================================= */
+
+/* Hero bliver et magasinopslag med tekst + vertikalt reportagefoto */
+.v15-hero-inner{
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(300px,.58fr);
+  column-gap:clamp(3rem,6vw,6rem);
+  align-items:start;
+}
+.v15-hero-inner > .v13-mastline{
+  grid-column:1 / -1;
+}
+.v15-hero-inner > .v14-hero-title,
+.v15-hero-inner > .hero-copy,
+.v15-hero-inner > .hero-actions,
+.v15-hero-inner > .v9-hero-bottom,
+.v15-hero-inner > .v9-principle{
+  grid-column:1;
+}
+.v15-hero-photo{
+  grid-column:2;
+  grid-row:2 / span 6;
+  margin:0;
+  align-self:start;
+  position:relative;
+}
+.v15-hero-photo::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  right:-18px;
+  top:28px;
+  width:54%;
+  height:calc(100% - 10px);
+  background:var(--retro-rust);
+}
+.v15-hero-photo img{
+  display:block;
+  width:100%;
+  max-height:650px;
+  object-fit:cover;
+  object-position:center center;
+  border-radius:4px;
+  filter:saturate(.9) contrast(1.02);
+}
+.v15-hero-photo figcaption{
+  margin-top:.65rem;
+  font-size:.66rem;
+  line-height:1.3;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--retro-muted);
+}
+
+/* Underrubrikken skal være tydeligt mindre end hovedrubrikken */
+.v14-hero-subline{
+  max-width:620px !important;
+  font-size:clamp(1.35rem,2.2vw,2.05rem) !important;
+  line-height:1.12 !important;
+  margin-bottom:2rem !important;
+}
+
+/* Udvalgt arbejde: tre tydelige redaktionelle rækker */
+.v14-editorial-grid{
+  grid-template-columns:1fr !important;
+  grid-template-areas:
+    "a"
+    "b"
+    "c" !important;
+  gap:0 !important;
+  border-top:1px solid var(--retro-line);
+}
+.v14-story,
+.v14-story-a,
+.v14-story-b,
+.v14-story-c{
+  grid-template-columns:82px 230px minmax(0,1fr) !important;
+  gap:1.5rem !important;
+  padding:1.25rem 0 !important;
+  margin:0 !important;
+  border-bottom:1px solid var(--retro-line);
+  align-items:start;
+  position:relative;
+}
+.v14-story::before{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:3.6rem;
+  line-height:.9;
+  color:var(--retro-rust);
+  letter-spacing:-.05em;
+}
+.v14-story-a::before{content:"01"}
+.v14-story-b::before{content:"02"}
+.v14-story-c::before{content:"03"}
+
+.v14-story > img,
+.v14-story-a > img,
+.v14-story-b > img,
+.v14-story-c > img{
+  grid-column:2;
+  width:230px !important;
+  max-width:230px !important;
+  max-height:155px;
+  object-fit:cover !important;
+  border-radius:4px !important;
+  margin:0 !important;
+}
+.v14-story .v9-story-copy{
+  grid-column:3;
+  padding:.15rem 0 0 !important;
+  border-top:0 !important;
+}
+.v14-story h3{
+  max-width:520px;
+  font-size:clamp(1.55rem,2.2vw,2.05rem);
+}
+
+/* Fjern gammel ekstra nummerering over grid, da rækkerne nu nummereres */
+.v9-story-grid::before{display:none}
+
+/* Jeg er Bjarke: rigtigt portræt, større og roligere */
+.v14-paper-section .v9-about-grid{
+  grid-template-columns:minmax(250px,340px) minmax(0,1fr) !important;
+  gap:clamp(2.5rem,5vw,5rem);
+  align-items:center;
+}
+.v14-paper-section .v11-about-figure{
+  width:100%;
+}
+.v14-paper-section .v11-about-figure img{
+  width:100%;
+  height:auto !important;
+  aspect-ratio:1 / 1 !important;
+  object-fit:cover !important;
+  object-position:center 42% !important;
+  border-radius:4px !important;
+  filter:saturate(.88) sepia(.04) contrast(1.01);
+}
+.v14-paper-section .v11-about-figure figcaption{
+  margin-top:.65rem;
+  font-size:.68rem;
+}
+.v14-paper-section h2{
+  white-space:normal;
+  line-height:.96;
+}
+
+/* Desktop: om-sektionen må gerne være kompakt som i mockuppet */
+@media(min-width:1000px){
+  .v14-paper-section .wrap{
+    max-width:1120px;
+  }
+}
+
+/* Tablet og mobil */
+@media(max-width:900px){
+  .v15-hero-inner{
+    grid-template-columns:1fr;
+  }
+  .v15-hero-photo{
+    grid-column:1;
+    grid-row:auto;
+    width:min(100%,520px);
+    margin:2rem 0;
+  }
+  .v15-hero-inner > .v14-hero-title,
+  .v15-hero-inner > .hero-copy,
+  .v15-hero-inner > .hero-actions,
+  .v15-hero-inner > .v9-hero-bottom,
+  .v15-hero-inner > .v9-principle{
+    grid-column:1;
+  }
+  .v14-story,
+  .v14-story-a,
+  .v14-story-b,
+  .v14-story-c{
+    grid-template-columns:62px 190px minmax(0,1fr) !important;
+  }
+  .v14-story > img,
+  .v14-story-a > img,
+  .v14-story-b > img,
+  .v14-story-c > img{
+    width:190px !important;
+    max-width:190px !important;
+  }
+}
+
+@media(max-width:650px){
+  .v14-story,
+  .v14-story-a,
+  .v14-story-b,
+  .v14-story-c{
+    grid-template-columns:54px minmax(0,1fr) !important;
+  }
+  .v14-story::before{
+    grid-column:1;
+    grid-row:1 / span 2;
+    font-size:2.7rem;
+  }
+  .v14-story > img,
+  .v14-story-a > img,
+  .v14-story-b > img,
+  .v14-story-c > img{
+    grid-column:2;
+    width:min(100%,240px) !important;
+    max-width:240px !important;
+  }
+  .v14-story .v9-story-copy{
+    grid-column:2;
+  }
+  .v14-paper-section .v9-about-grid{
+    grid-template-columns:1fr !important;
+  }
+  .v14-paper-section .v11-about-figure{
+    width:min(72vw,300px);
+  }
+}
+
+
+/* =========================================================
+   V16 — finpudsning efter lokal gennemgang
+   ========================================================= */
+
+/* Hero: hovedrubrik på én linje på normale desktopskærme */
+@media(min-width:901px){
+  .v15-hero-inner{
+    grid-template-columns:minmax(0,1.18fr) minmax(270px,.52fr) !important;
+    column-gap:clamp(2.5rem,5vw,5rem) !important;
+  }
+  .v14-hero-title h1{
+    font-size:clamp(3.15rem,5.2vw,5.55rem) !important;
+    white-space:nowrap;
+    letter-spacing:-.06em !important;
+  }
+  .v14-hero-subline{
+    font-size:clamp(1.25rem,1.85vw,1.8rem) !important;
+  }
+}
+
+/* Udvalgt arbejde: tættere og mere samlet */
+.v14-story,
+.v14-story-a,
+.v14-story-b,
+.v14-story-c{
+  grid-template-columns:64px 210px minmax(0,1fr) !important;
+  gap:1.25rem !important;
+  padding:1.05rem 0 !important;
+}
+.v14-story::before{
+  font-size:3rem !important;
+}
+.v14-story > img,
+.v14-story-a > img,
+.v14-story-b > img,
+.v14-story-c > img{
+  width:210px !important;
+  max-width:210px !important;
+  max-height:140px !important;
+}
+.v14-story h3{
+  margin-top:0 !important;
+}
+
+/* Presse: mindre gul flade og mere magasinopslag */
+.v14-band{
+  padding-top:clamp(3.5rem,6vw,5rem) !important;
+  padding-bottom:clamp(3.5rem,6vw,5rem) !important;
+}
+@media(min-width:850px){
+  .v14-band .v9-comm-grid{
+    grid-template-columns:.9fr 1.1fr !important;
+    gap:clamp(3rem,6vw,6rem) !important;
+    align-items:start;
+  }
+}
+
+/* Jeg er Bjarke: billede og tekst som et samlet redaktionelt opslag */
+.v14-paper-section{
+  padding-top:clamp(4rem,7vw,6rem) !important;
+  padding-bottom:clamp(4rem,7vw,6rem) !important;
+}
+@media(min-width:760px){
+  .v14-paper-section .v9-about-grid{
+    grid-template-columns:minmax(230px,320px) minmax(0,1fr) !important;
+    gap:clamp(2.5rem,5vw,5rem) !important;
+    align-items:center !important;
+  }
+  .v14-paper-section .v11-about-figure{
+    grid-column:1;
+    grid-row:1;
+  }
+  .v14-paper-section .v9-about-copy{
+    grid-column:2;
+    grid-row:1;
+  }
+  .v14-paper-section h2{
+    font-size:clamp(2.8rem,4.4vw,4.7rem) !important;
+    margin-bottom:1.25rem !important;
+  }
+}
+
+/* Tablet */
+@media(min-width:651px) and (max-width:900px){
+  .v14-story,
+  .v14-story-a,
+  .v14-story-b,
+  .v14-story-c{
+    grid-template-columns:58px 185px minmax(0,1fr) !important;
+  }
+  .v14-story > img,
+  .v14-story-a > img,
+  .v14-story-b > img,
+  .v14-story-c > img{
+    width:185px !important;
+    max-width:185px !important;
+  }
+}
+
+/* Mobil: naturligt linjebrud er tilladt */
+@media(max-width:650px){
+  .v14-hero-title h1{
+    white-space:normal !important;
+  }
+  .v14-story,
+  .v14-story-a,
+  .v14-story-b,
+  .v14-story-c{
+    grid-template-columns:48px minmax(0,1fr) !important;
+  }
+}
+
+
+/* =========================================================
+   V17 — typografisk oprydning
+   ========================================================= */
+
+/* Mere tydelig afstand mellem hovedrubrik og underrubrik */
+.v14-hero-title h1{
+  margin-bottom:1.15rem !important;
+}
+.v14-hero-subline{
+  margin-top:0 !important;
+}
+
+/* Overskrifter skal fremstå som rubrikker, ikke afsluttede sætninger */
+h1,h2,h3,h4,h5,h6{
+  text-wrap:balance;
+}
+
+
+/* =========================================================
+   V18 — redaktionelt gennemskrevne forsidetekster
+   ========================================================= */
+
+.v18-about-copy p{
+  margin:0 0 1rem;
+  max-width:700px;
+  font-size:1.04rem;
+  line-height:1.68;
+}
+.v18-about-copy p:last-child{
+  margin-bottom:1.25rem;
+}
+
+/* Den nye arbejdsrubrik må gerne stå stort og enkelt */
+.v9-work .section-head h2{
+  max-width:760px !important;
+}
+
+/* Den korte deck-linje skal være diskret */
+.v11-deck{
+  text-transform:none !important;
+  font-family:Georgia,"Times New Roman",serif !important;
+  font-style:italic !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+}
+
+
+/* =========================================================
+   V19 — små, målrettede forbedringer oven på version 18
+   ========================================================= */
+
+/* Hero: tydelig festival-identifikation direkte på billedet */
+.v19-hero-image-wrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:4px;
+}
+
+.v19-hero-image-wrap > img{
+  border-radius:0 !important;
+}
+
+.v19-festival-label{
+  position:absolute;
+  left:clamp(14px,2.2vw,28px);
+  bottom:clamp(14px,2.2vw,28px);
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.08em;
+  max-width:calc(100% - 28px);
+  padding:.55rem .72rem .48rem;
+  background:rgba(26,32,25,.84);
+  border-left:5px solid var(--retro-mustard);
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  color:#f4eedf;
+}
+
+.v19-festival-name{
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:clamp(1.02rem,2.05vw,1.7rem);
+  line-height:.95;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.025em;
+  white-space:nowrap;
+}
+
+.v19-festival-year{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.35rem,2.8vw,2.35rem);
+  line-height:.98;
+  font-weight:700;
+  color:var(--retro-mustard);
+}
+
+/* Portrættet: blødere integration uden at ændre billedfilen */
+.v14-paper-section .v11-about-figure{
+  position:relative;
+}
+
+.v14-paper-section .v11-about-figure::before{
+  content:"";
+  position:absolute;
+  inset:-10px 10px 30px -10px;
+  border:1px solid rgba(91,70,53,.18);
+  border-radius:18px 18px 7px 18px;
+  pointer-events:none;
+}
+
+.v14-paper-section .v11-about-figure img{
+  position:relative;
+  z-index:1;
+  border-radius:18px 18px 7px 18px !important;
+  border:none !important;
+  box-shadow:0 16px 34px rgba(56,45,34,.11);
+  filter:saturate(.9) sepia(.035) contrast(1.01);
+}
+
+/* Bevar et roligt, redaktionelt udtryk på mobil */
+@media (max-width:700px){
+  .v19-festival-label{
+    left:12px;
+    bottom:12px;
+    padding:.5rem .62rem .44rem;
+    border-left-width:4px;
+  }
+
+  .v19-festival-name{
+    white-space:normal;
+  }
+
+  .v14-paper-section .v11-about-figure::before{
+    inset:-7px 7px 26px -7px;
+  }
+}
+
+
+/* =========================================================
+   V20 — endelig hero-behandling oven på version 19
+   ========================================================= */
+
+.v20-festival-label{
+  left:clamp(16px,2.5vw,34px) !important;
+  bottom:clamp(18px,3vw,38px) !important;
+  gap:0 !important;
+  padding:.72rem .9rem .68rem !important;
+  max-width:min(88%, 620px) !important;
+  background:rgba(24,31,24,.9) !important;
+  border-left:6px solid var(--retro-mustard) !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.22) !important;
+}
+
+.v20-festival-kicker{
+  display:block;
+  margin-bottom:.24rem;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:clamp(.7rem,.95vw,.86rem);
+  line-height:1;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  color:#f4eedf;
+}
+
+.v20-festival-name{
+  display:block;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:clamp(1.55rem,3.15vw,2.75rem);
+  line-height:.91;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-.025em;
+  color:#f4eedf;
+}
+
+.v20-festival-year{
+  display:block;
+  margin-top:.14rem;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.75rem,3.7vw,3.15rem);
+  line-height:.9;
+  font-weight:700;
+  color:var(--retro-mustard);
+}
+
+.v20-photo-credit{
+  position:absolute;
+  right:clamp(10px,1.5vw,18px);
+  bottom:clamp(8px,1.2vw,14px);
+  z-index:3;
+  padding:.22rem .38rem;
+  background:rgba(24,31,24,.66);
+  color:#f4eedf;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:clamp(.56rem,.7vw,.68rem);
+  line-height:1.1;
+  letter-spacing:.01em;
+  border-radius:2px;
+}
+
+/* På små skærme skal overlayet stadig være klart, uden at dække hele fotoet */
+@media (max-width:700px){
+  .v20-festival-label{
+    left:12px !important;
+    bottom:14px !important;
+    max-width:calc(100% - 24px) !important;
+    padding:.6rem .7rem .56rem !important;
+    border-left-width:5px !important;
+  }
+
+  .v20-festival-name{
+    font-size:clamp(1.28rem,7vw,1.8rem);
+  }
+
+  .v20-festival-year{
+    font-size:clamp(1.5rem,8vw,2.05rem);
+  }
+
+  .v20-photo-credit{
+    top:8px;
+    right:8px;
+    bottom:auto;
+  }
+}

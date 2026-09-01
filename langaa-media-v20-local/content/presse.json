@@ -1,0 +1,20 @@
+{
+  "kicker": "Presse & kommunikation",
+  "title": "Find historien før du finder ordene.",
+  "intro": "Jeg hjælper virksomheder, foreninger og organisationer med at kommunikere klart og troværdigt uden at skrive som et kommunikationsbureau.",
+  "closing": "Hvis ingen uden for organisationen kan se, hvorfor historien er vigtig, er problemet sjældent formuleringen. Så er det vinklen.",
+  "services": [
+    {
+      "title": "Pressemeddelelser",
+      "text": "Vinkel, research, citater og en tekst, der er skrevet med redaktionens blik for, hvad der faktisk er en historie."
+    },
+    {
+      "title": "Web og artikler",
+      "text": "Tekster, der kan læses af mennesker, ikke kun godkendes i en organisation."
+    },
+    {
+      "title": "Rådgivning",
+      "text": "Hjælp til budskaber, pressevinkler og valg af format, før tiden bruges på den forkerte løsning."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "kicker": "Langåen",
+  "title": "Et medie helt tæt på byen.",
+  "intro": "Langåen er Langå Medias eget hyperlokale nyhedsprojekt. Ambitionen er enkel: mere journalistik om det sted, hvor mennesker faktisk lever deres hverdag.",
+  "body": "Langåen skal dække politik, sport, erhverv, kultur, foreningsliv og hverdagsliv. Ikke på afstand, men med fysisk tilstedeværelse og en journalist, der kender byen uden at blive ukritisk.",
+  "principles": [
+    {
+      "title": "Nærhed",
+      "text": "Journalisten skal være til stede, mens historierne opstår."
+    },
+    {
+      "title": "Uafhængighed",
+      "text": "Nærhed skal styrke journalistikken, ikke begrænse den."
+    },
+    {
+      "title": "Fællesskab",
+      "text": "Mediet skal være mere end en skærm og skabe møder mellem journalistik og by."
+    }
+  ]
+}

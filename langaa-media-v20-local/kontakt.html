@@ -1,0 +1,37 @@
+<!doctype html><html lang="da"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Kontakt Langå Media om journalistik, kommunikation, Langåen eller foredrag.">
+<title>Kontakt | Langå Media</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="index.html" aria-label="Langå Media"><span>LANGÅ</span><small>MEDIA</small></a>
+<button class="menu-btn" aria-label="Åbn menu" aria-expanded="false">Menu</button>
+<nav class="nav"><a href="index.html" class="">Forside</a>
+<a href="journalistik.html" class="">Journalistik</a>
+<a href="presse-kommunikation.html" class="">Presse & kommunikation</a>
+<a href="langaaen.html" class="">Langåen</a>
+<a href="foredrag.html" class="">Foredrag</a>
+<a href="om-mig.html" class="">Om mig</a>
+<a href="kontakt.html" class="active">Kontakt</a></nav></div></header>
+<main>
+<section class="page-hero"><div class="wrap"><p class="kicker"><span data-cms="contact.kicker">Kontakt</span></p><h1><span data-cms="contact.title">Har du en historie eller en opgave?</span></h1><p><span data-cms="contact.intro">Skriv kort, hvad du har brug for. Formularen sendes via Netlify, når siden ligger online.</span></p></div></section>
+<section class="section"><div class="wrap contact-grid">
+<div><h2>Lad os tale om den</h2><p>Du kan bruge formularen til journalistiske opgaver, presse og kommunikation, spørgsmål om Langåen eller booking af foredraget.</p></div>
+<div>
+<form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="tak.html">
+<input type="hidden" name="form-name" value="kontakt">
+<p style="display:none"><label>Udfyld ikke dette felt <input name="bot-field"></label></p>
+<div><label for="navn">Navn</label><input id="navn" name="navn" required></div>
+<div><label for="email">E-mail</label><input id="email" name="email" type="email" required></div>
+<div><label for="emne">Hvad handler det om?</label><input id="emne" name="emne"></div>
+<div><label for="besked">Besked</label><textarea id="besked" name="besked" required></textarea></div>
+<button class="btn" type="submit">Send besked</button>
+<p class="notice">Netlify registrerer formularen automatisk ved første deploy.</p>
+</form></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap footer-grid">
+<div><a class="brand" href="index.html"><span>LANGÅ</span><small>MEDIA</small></a></div>
+<div><p>Journalistik · kommunikation · formidling</p><p>Langå, Danmark</p></div>
+<div><p><a href="kontakt.html">Kontakt Langå Media</a></p><p>© <span data-year></span> Langå Media</p></div>
+</div></footer><script src="script.js"></script></body></html>
