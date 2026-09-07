@@ -19,7 +19,7 @@ collections:
           - { label: "Overlinje", name: "kicker", widget: "string" }
           - { label: "Overskrift", name: "title", widget: "string" }
           - { label: "Fremhævet overskrift", name: "title_accent", widget: "string" }
-          - { label: "Introduktion", name: "intro", widget: "text" 
+          - { label: "Introduktion", name: "intro", widget: "text" }
           - { label: "Grundprincip", name: "principle", widget: "text" }
           - { label: "Overskrift over ydelser", name: "work_title", widget: "string" }
           - { label: "Om-overskrift", name: "about_title", widget: "string" }
