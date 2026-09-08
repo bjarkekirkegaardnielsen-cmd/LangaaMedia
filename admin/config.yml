@@ -128,7 +128,7 @@ collections:
           - { label: "Overskrift", name: "title", widget: "string" }
           - { label: "Introduktion", name: "intro", widget: "text" }
 
-  - name: "indstillinger"
+    - name: "indstillinger"
     label: "Indstillinger"
     files:
       - label: "Kontaktoplysninger"
@@ -137,4 +137,6 @@ collections:
         format: "json"
         fields:
           - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "Telefonlink", name: "phone_link", widget: "string", hint: "Skriv fx +4530421705 uden mellemrum" }
           - { label: "Sted", name: "location", widget: "string" }
