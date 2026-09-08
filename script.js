@@ -1,122 +1,397 @@
+/* =========================
+   MENU
+========================= */
 
-const btn=document.querySelector('.menu-btn');
-const nav=document.querySelector('.nav');
-if(btn&&nav){
-  btn.addEventListener('click',()=>{
-    const open=nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded',String(open));
+const btn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
+
+if (btn && nav) {
+  btn.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
   });
-  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-    nav.classList.remove('open');btn.setAttribute('aria-expanded','false');
-  }));
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  });
 }
-document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
 
 
+/* =========================
+   ÅRSTAL
+========================= */
+
+document.querySelectorAll("[data-year]").forEach((element) => {
+  element.textContent = new Date().getFullYear();
+});
+
+
+/* =========================
+   CMS-FILER
+========================= */
 
 const cmsFiles = {
-  home: '/content/forside.json',
-  about: '/content/om-mig.json',
-  journalistik: '/content/journalistik.json',
-  presse: '/content/presse.json',
-  langaaen: '/content/langaaen.json',
-  foredrag: '/content/foredrag.json',
-  contact: '/content/kontakt.json',
-  site: '/content/site.json'
+  home: "/content/forside.json",
+  about: "/content/om-mig.json",
+  journalistik: "/content/journalistik.json",
+  presse: "/content/presse.json",
+  langaaen: "/content/langaaen.json",
+  foredrag: "/content/foredrag.json",
+  contact: "/content/kontakt.json",
+  site: "/content/site.json"
 };
 
-async function fetchJson(path){
-  const r = await fetch(path,{cache:'no-store'});
-  if(!r.ok) throw new Error(path);
-  return r.json();
-}
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
-}
-async function loadCms(){
-  try{
-    const data = {};
-    for (const [key,path] of Object.entries(cmsFiles)) {
-      data[key] = await fetchJson(path);
-    }
 
-    document.querySelectorAll('[data-cms]').forEach(el=>{
-      const [group,...rest]=el.dataset.cms.split('.');
-      let value=data[group];
-      for(const key of rest) value=value?.[key];
-      if(value===undefined||value===null)return;
-      if(Array.isArray(value)){
-        el.innerHTML=value.map(p=>`<p>${escapeHtml(p)}</p>`).join('');
-      } else el.textContent=value;
-    });
+/* =========================
+   HENT JSON
+========================= */
 
-    document.querySelectorAll('[data-cms-image]').forEach(el=>{
-      const [group,...rest]=el.dataset.cmsImage.split('.');
-      let value=data[group];
-      for(const key of rest)value=value?.[key];
-      if(value)el.src=value;
-    });
-
-    document.querySelectorAll('[data-cms-alt]').forEach(el=>{
-      const [group,...rest]=el.dataset.cmsAlt.split('.');
-      let value=data[group];
-      for(const key of rest)value=value?.[key];
-      if(value)el.alt=value;
-    });
-
-    const renderCards=(selector,items)=>{
-      const host=document.querySelector(selector);
-      if(!host||!Array.isArray(items))return;
-      host.innerHTML=items.map(i=>`<div class="card"><h3>${escapeHtml(i.title)}</h3><p>${escapeHtml(i.text)}</p></div>`).join('');
-    };
-    renderCards('[data-cms-cards="presse.services"]',data.presse?.services);
-    renderCards('[data-cms-cards="langaaen.principles"]',data.langaaen?.principles);
-    renderCards('[data-cms-cards="foredrag.audiences"]',data.foredrag?.audiences);
-
-    const list=document.querySelector('[data-cms-list="journalistik.services"]');
-    if(list&&Array.isArray(data.journalistik?.services)){
-      list.innerHTML=data.journalistik.services.map(x=>`<li>${escapeHtml(x)}</li>`).join('');
-    }
-
-    document.querySelectorAll('[data-cms-email]').forEach(el=>{
-      if(data.site?.email){el.textContent=data.site.email;el.href='mailto:'+data.site.email;}
-    });
-  }catch(e){console.warn('CMS loading failed',e);}
-}
-loadCms();
-async function loadSiteSettings() {
+async function fetchJson(path) {
   try {
-    const response = await fetch("/content/site.json");
+    const separator = path.includes("?") ? "&" : "?";
+
+    const response = await fetch(
+      `${path}${separator}v=${Date.now()}`,
+      {
+        cache: "no-store"
+      }
+    );
 
     if (!response.ok) {
-      throw new Error("Kunne ikke hente site.json");
+      throw new Error(
+        `Kunne ikke hente ${path}. Status: ${response.status}`
+      );
     }
 
-    const site = await response.json();
+    return await response.json();
 
-    document.querySelectorAll("[data-site-email]").forEach((element) => {
+  } catch (error) {
+    console.warn("CMS-fil kunne ikke indlæses:", path, error);
+    return null;
+  }
+}
+
+
+/* =========================
+   HJÆLPEFUNKTIONER
+========================= */
+
+function escapeHtml(value) {
+  return String(value).replace(
+    /[&<>"']/g,
+    (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    })[character]
+  );
+}
+
+
+function getValue(data, path) {
+  const [group, ...keys] = path.split(".");
+
+  let value = data[group];
+
+  for (const key of keys) {
+    value = value?.[key];
+  }
+
+  return value;
+}
+
+
+/* =========================
+   ALMINDELIGE CMS-FELTER
+========================= */
+
+function renderTextFields(data) {
+
+  document.querySelectorAll("[data-cms]").forEach((element) => {
+
+    const value = getValue(
+      data,
+      element.dataset.cms
+    );
+
+    if (value === undefined || value === null) {
+      return;
+    }
+
+    /*
+      Hvis feltet er en liste, fx afsnit på Om mig
+    */
+    if (Array.isArray(value)) {
+
+      const paragraphs = value.map((item) => {
+
+        if (typeof item === "string") {
+          return `<p>${escapeHtml(item)}</p>`;
+        }
+
+        if (item && typeof item === "object") {
+
+          if (item.paragraph !== undefined) {
+            return `<p>${escapeHtml(item.paragraph)}</p>`;
+          }
+
+          if (item.text !== undefined) {
+            return `<p>${escapeHtml(item.text)}</p>`;
+          }
+        }
+
+        return "";
+
+      }).join("");
+
+      element.innerHTML = paragraphs;
+
+    } else {
+
+      element.textContent = value;
+
+    }
+
+  });
+}
+
+
+/* =========================
+   BILLEDER
+========================= */
+
+function renderImages(data) {
+
+  document.querySelectorAll("[data-cms-image]").forEach((element) => {
+
+    const value = getValue(
+      data,
+      element.dataset.cmsImage
+    );
+
+    if (value) {
+      element.src = value;
+    }
+
+  });
+
+
+  document.querySelectorAll("[data-cms-alt]").forEach((element) => {
+
+    const value = getValue(
+      data,
+      element.dataset.cmsAlt
+    );
+
+    if (value) {
+      element.alt = value;
+    }
+
+  });
+}
+
+
+/* =========================
+   KORT
+========================= */
+
+function renderCards(selector, items) {
+
+  const host = document.querySelector(selector);
+
+  if (!host || !Array.isArray(items)) {
+    return;
+  }
+
+  host.innerHTML = items.map((item) => {
+
+    const title = item?.title || "";
+    const text = item?.text || "";
+
+    return `
+      <div class="card">
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(text)}</p>
+      </div>
+    `;
+
+  }).join("");
+}
+
+
+/* =========================
+   JOURNALISTIK-LISTE
+========================= */
+
+function renderJournalistikServices(data) {
+
+  const list = document.querySelector(
+    '[data-cms-list="journalistik.services"]'
+  );
+
+  if (
+    !list ||
+    !Array.isArray(data.journalistik?.services)
+  ) {
+    return;
+  }
+
+  list.innerHTML = data.journalistik.services
+    .map((item) => {
+
+      const text =
+        typeof item === "string"
+          ? item
+          : item?.service || "";
+
+      return `<li>${escapeHtml(text)}</li>`;
+
+    })
+    .join("");
+}
+
+
+/* =========================
+   KONTAKTOPLYSNINGER
+========================= */
+
+function renderSiteSettings(site) {
+
+  if (!site) {
+    return;
+  }
+
+
+  /* E-mail */
+
+  document
+    .querySelectorAll(
+      "[data-site-email], [data-cms-email]"
+    )
+    .forEach((element) => {
+
+      if (!site.email) {
+        return;
+      }
+
       element.textContent = site.email;
 
       if (element.tagName === "A") {
         element.href = `mailto:${site.email}`;
       }
+
     });
 
-    document.querySelectorAll("[data-site-phone]").forEach((element) => {
+
+  /* Telefon */
+
+  document
+    .querySelectorAll("[data-site-phone]")
+    .forEach((element) => {
+
+      if (!site.phone) {
+        return;
+      }
+
       element.textContent = site.phone;
 
       if (element.tagName === "A") {
-        element.href = `tel:${site.phone_link}`;
+
+        const phoneLink =
+          site.phone_link ||
+          site.phone.replace(/\s+/g, "");
+
+        element.href = `tel:${phoneLink}`;
       }
+
     });
 
-    document.querySelectorAll("[data-site-location]").forEach((element) => {
-      element.textContent = site.location;
-    });
 
-  } catch (error) {
-    console.error("Fejl ved indlæsning af kontaktoplysninger:", error);
-  }
+  /* Sted */
+
+  document
+    .querySelectorAll("[data-site-location]")
+    .forEach((element) => {
+
+      if (site.location) {
+        element.textContent = site.location;
+      }
+
+    });
 }
 
-loadSiteSettings();
+
+/* =========================
+   INDLÆS CMS
+========================= */
+
+async function loadCms() {
+
+  const data = {};
+
+  /*
+    Hver fil indlæses separat.
+    En fejl i én fil stopper derfor
+    ikke hele hjemmesiden.
+  */
+
+  await Promise.all(
+    Object.entries(cmsFiles).map(
+      async ([key, path]) => {
+
+        data[key] = await fetchJson(path);
+
+      }
+    )
+  );
+
+
+  /* Almindelige tekster */
+
+  renderTextFields(data);
+
+
+  /* Billeder */
+
+  renderImages(data);
+
+
+  /* Kort */
+
+  renderCards(
+    '[data-cms-cards="presse.services"]',
+    data.presse?.services
+  );
+
+  renderCards(
+    '[data-cms-cards="langaaen.principles"]',
+    data.langaaen?.principles
+  );
+
+  renderCards(
+    '[data-cms-cards="foredrag.audiences"]',
+    data.foredrag?.audiences
+  );
+
+
+  /* Journalistik */
+
+  renderJournalistikServices(data);
+
+
+  /* Kontaktoplysninger */
+
+  renderSiteSettings(data.site);
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadCms();
