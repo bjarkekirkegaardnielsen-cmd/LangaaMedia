@@ -84,3 +84,39 @@ async function loadCms(){
   }catch(e){console.warn('CMS loading failed',e);}
 }
 loadCms();
+async function loadSiteSettings() {
+  try {
+    const response = await fetch("/content/site.json");
+
+    if (!response.ok) {
+      throw new Error("Kunne ikke hente site.json");
+    }
+
+    const site = await response.json();
+
+    document.querySelectorAll("[data-site-email]").forEach((element) => {
+      element.textContent = site.email;
+
+      if (element.tagName === "A") {
+        element.href = `mailto:${site.email}`;
+      }
+    });
+
+    document.querySelectorAll("[data-site-phone]").forEach((element) => {
+      element.textContent = site.phone;
+
+      if (element.tagName === "A") {
+        element.href = `tel:${site.phone_link}`;
+      }
+    });
+
+    document.querySelectorAll("[data-site-location]").forEach((element) => {
+      element.textContent = site.location;
+    });
+
+  } catch (error) {
+    console.error("Fejl ved indlæsning af kontaktoplysninger:", error);
+  }
+}
+
+loadSiteSettings();
