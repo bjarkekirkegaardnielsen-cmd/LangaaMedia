@@ -1908,3 +1908,22 @@ h1,h2,h3,h4,h5,h6{
     bottom:auto;
   }
 }
+
+/* Priser v21 */
+.price-hero { padding-bottom: clamp(3rem, 6vw, 5rem); }
+.price-list { border-top: 1px solid currentColor; }
+.price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-bottom: 1px solid currentColor;
+}
+.price-row h2 { margin: 0 0 .55rem; font-size: clamp(1.5rem, 3vw, 2.25rem); }
+.price-row p { margin: 0; max-width: 680px; }
+.price-row strong { font-size: clamp(1.05rem, 2vw, 1.35rem); white-space: nowrap; }
+@media (max-width: 700px) {
+  .price-row { grid-template-columns: 1fr; gap: .75rem; }
+  .price-row strong { white-space: normal; }
+}

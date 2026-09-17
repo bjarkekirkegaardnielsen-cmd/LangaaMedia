@@ -20,6 +20,7 @@ collections:
           - { label: "Overskrift", name: "title", widget: "string" }
           - { label: "Fremhævet overskrift", name: "title_accent", widget: "string" }
           - { label: "Introduktion", name: "intro", widget: "text" }
+          - { label: "Om-overskrift", name: "about_title", widget: "string" }
           - { label: "Grundprincip", name: "principle", widget: "text" }
           - { label: "Overskrift over ydelser", name: "work_title", widget: "string" }
           - { label: "Om-overskrift", name: "about_title", widget: "string" }
@@ -119,6 +120,26 @@ collections:
               - { label: "Titel", name: "title", widget: "string" }
               - { label: "Tekst", name: "text", widget: "text" }
 
+      - label: "Priser"
+        name: "priser"
+        file: "content/priser.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+          - label: "Prisliste"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Ydelse", name: "title", widget: "string" }
+              - { label: "Pris", name: "price", widget: "string" }
+              - { label: "Beskrivelse", name: "text", widget: "text" }
+          - { label: "Noteoverskrift", name: "note_title", widget: "string" }
+          - { label: "Prisbetingelser", name: "note", widget: "text" }
+          - { label: "Kontaktoverskrift", name: "contact_title", widget: "string" }
+          - { label: "Kontakttekst", name: "contact_text", widget: "text" }
+
       - label: "Kontakt"
         name: "kontakt"
         file: "content/kontakt.json"
@@ -137,6 +158,4 @@ collections:
         format: "json"
         fields:
           - { label: "E-mail", name: "email", widget: "string" }
-          - { label: "Telefon", name: "phone", widget: "string" }
-          - { label: "Telefonlink", name: "phone_link", widget: "string", hint: "Skriv fx +4530421705 uden mellemrum" }
           - { label: "Sted", name: "location", widget: "string" }
