@@ -1,0 +1,59 @@
+{
+  "kicker": "Mit arbejde",
+  "title": "Historier, jeg har fortalt",
+  "intro": "Jeg har arbejdet med journalistik i mange år og i flere formater. Her er et udvalg af artikler, interviews, reportager og lyd, som viser noget af spændvidden.",
+  "items": [
+    {
+      "eyebrow": "POLITIK · INTERVIEW",
+      "title": "Løkke til Venstres Ungdom: Vær beredt",
+      "text": "Interview med Lars Løkke Rasmussen for Randers Amtsavis.",
+      "meta": "Politik · Interview · Nyhedsjournalistik",
+      "url": "https://amtsavisen.dk/randers/loekke-til-venstres-ungdom-vaer-beredt",
+      "link_text": "Læs artiklen på Randers Amtsavis",
+      "image": "/images/uploads/journalistik-interview-lars-lokke.jpg",
+      "image_alt": "Bjarke interviewer Lars Løkke Rasmussen"
+    },
+    {
+      "eyebrow": "POLITIK · KOMMUNALVALGET 2025",
+      "title": "Michael Stegger Jensen fortsat borgmester i Syddjurs Kommune",
+      "text": "Valgnatten 2025. Da resultatet og borgmesterposten i Syddjurs Kommune var afgjort, skrev jeg den første artikel om resultatet.",
+      "meta": "Politik · Valg · Nyhedsjournalistik",
+      "url": "https://stiften.dk/samfund/michael-stegger-jensen-fortsat-borgmester-i-syddjurs-kommune",
+      "link_text": "Læs på Stiften.dk · kræver abonnement"
+    },
+    {
+      "eyebrow": "INTERVIEW · EUROPEAN DOG SHOW 2023",
+      "title": "Er hunde nogensinde ligegyldige?",
+      "text": "På European Dog Show i Herning mødte jeg præsidenten for Ukraines Kennel Klub. Det blev til en historie om hunde og hundeliv i et land præget af krig.",
+      "meta": "Interview · International vinkel · Reportage",
+      "url": "https://www.hunden.dk/nyheder/eds-er-hunde-nogensinde-ligegyldige/71423",
+      "link_text": "Læs historien på Hunden.dk"
+    },
+    {
+      "eyebrow": "REPORTAGE · HUNDEN.DK",
+      "title": "Første hundeoperation i Frynseklinikken",
+      "text": "En reportage fra mit journalistiske arbejde på Hunden.dk.",
+      "meta": "Reportage · Hunden.dk",
+      "url": "https://www.hunden.dk/nyheder/reportage-forste-hundeoperation-i-frynseklinikken/46238",
+      "link_text": "Læs historien på Hunden.dk"
+    },
+    {
+      "eyebrow": "ARTIKEL · HUNDEN.DK",
+      "title": "Ghitas gyldne guldkorn",
+      "text": "Et udvalgt eksempel fra mit journalistiske arbejde på Hunden.dk.",
+      "meta": "Journalistik · Hunden.dk",
+      "url": "https://www.hunden.dk/nyheder/ghitas-gyldne-guldkorn/53500",
+      "link_text": "Læs historien på Hunden.dk"
+    },
+    {
+      "eyebrow": "PODCAST · HUNDEN.DK",
+      "title": "Journalistik kan også høres",
+      "text": "I 2022 var jeg med til at lave Hunden.dk's podcast. Det blev til ti episoder med historier og samtaler om hunde og menneskerne omkring dem.",
+      "meta": "10 episoder · Podcast · Interview",
+      "url": "https://open.spotify.com/show/3Pla7fOhYOUsFnmzWv2n7n",
+      "link_text": "Hør Hunden.dk på Spotify"
+    }
+  ],
+  "closing_title": "Journalistik er mit håndværk",
+  "closing_text": "Jeg arbejder med tekst, interview, web, magasin, podcast, video og kommunikation. Fælles for det hele er arbejdet med at finde historien og fortælle den, så den bliver læst, set eller hørt."
+}

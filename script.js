@@ -1,86 +1,17 @@
-
 const btn=document.querySelector('.menu-btn');
 const nav=document.querySelector('.nav');
-if(btn&&nav){
-  btn.addEventListener('click',()=>{
-    const open=nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded',String(open));
-  });
-  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-    nav.classList.remove('open');btn.setAttribute('aria-expanded','false');
-  }));
-}
+if(btn&&nav){btn.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}));}
 document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
-
-
-
-const cmsFiles = {
-  home: '/content/forside.json',
-  about: '/content/om-mig.json',
-  journalistik: '/content/journalistik.json',
-  presse: '/content/presse.json',
-  langaaen: '/content/langaaen.json',
-  foredrag: '/content/foredrag.json',
-  contact: '/content/kontakt.json',
-  site: '/content/site.json'
-};
-
-async function fetchJson(path){
-  const r = await fetch(path,{cache:'no-store'});
-  if(!r.ok) throw new Error(path);
-  return r.json();
-}
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
-}
-async function loadCms(){
-  try{
-    const data = {};
-    for (const [key,path] of Object.entries(cmsFiles)) {
-      data[key] = await fetchJson(path);
-    }
-
-    document.querySelectorAll('[data-cms]').forEach(el=>{
-      const [group,...rest]=el.dataset.cms.split('.');
-      let value=data[group];
-      for(const key of rest) value=value?.[key];
-      if(value===undefined||value===null)return;
-      if(Array.isArray(value)){
-        el.innerHTML=value.map(p=>`<p>${escapeHtml(p)}</p>`).join('');
-      } else el.textContent=value;
-    });
-
-    document.querySelectorAll('[data-cms-image]').forEach(el=>{
-      const [group,...rest]=el.dataset.cmsImage.split('.');
-      let value=data[group];
-      for(const key of rest)value=value?.[key];
-      if(value)el.src=value;
-    });
-
-    document.querySelectorAll('[data-cms-alt]').forEach(el=>{
-      const [group,...rest]=el.dataset.cmsAlt.split('.');
-      let value=data[group];
-      for(const key of rest)value=value?.[key];
-      if(value)el.alt=value;
-    });
-
-    const renderCards=(selector,items)=>{
-      const host=document.querySelector(selector);
-      if(!host||!Array.isArray(items))return;
-      host.innerHTML=items.map(i=>`<div class="card"><h3>${escapeHtml(i.title)}</h3><p>${escapeHtml(i.text)}</p></div>`).join('');
-    };
-    renderCards('[data-cms-cards="presse.services"]',data.presse?.services);
-    renderCards('[data-cms-cards="langaaen.principles"]',data.langaaen?.principles);
-    renderCards('[data-cms-cards="foredrag.audiences"]',data.foredrag?.audiences);
-
-    const list=document.querySelector('[data-cms-list="journalistik.services"]');
-    if(list&&Array.isArray(data.journalistik?.services)){
-      list.innerHTML=data.journalistik.services.map(x=>`<li>${escapeHtml(x)}</li>`).join('');
-    }
-
-    document.querySelectorAll('[data-cms-email]').forEach(el=>{
-      if(data.site?.email){el.textContent=data.site.email;el.href='mailto:'+data.site.email;}
-    });
-  }catch(e){console.warn('CMS loading failed',e);}
-}
+const cmsFiles={home:'/content/forside.json',about:'/content/om-mig.json',journalistik:'/content/journalistik.json',presse:'/content/presse.json',langaaen:'/content/langaaen.json',foredrag:'/content/foredrag.json',priser:'/content/priser.json',arbejde:'/content/arbejde.json',contact:'/content/kontakt.json',site:'/content/site.json'};
+async function fetchJson(path){try{const r=await fetch(`${path}?v=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw new Error(`${path}: ${r.status}`);return await r.json();}catch(e){console.warn('CMS-fil kunne ikke indlæses',e);return null;}}
+function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
+function getValue(data,path){const [group,...keys]=path.split('.');let value=data[group];for(const key of keys)value=value?.[key];return value;}
+async function loadCms(){const data={};await Promise.all(Object.entries(cmsFiles).map(async([k,p])=>data[k]=await fetchJson(p)));
+document.querySelectorAll('[data-cms]').forEach(el=>{const value=getValue(data,el.dataset.cms);if(value==null)return;if(Array.isArray(value))el.innerHTML=value.map(x=>`<p>${escapeHtml(typeof x==='string'?x:(x.paragraph??x.text??''))}</p>`).join('');else el.textContent=value;});
+document.querySelectorAll('[data-cms-image]').forEach(el=>{const v=getValue(data,el.dataset.cmsImage);if(v)el.src=v;});document.querySelectorAll('[data-cms-alt]').forEach(el=>{const v=getValue(data,el.dataset.cmsAlt);if(v)el.alt=v;});
+const renderCards=(selector,items)=>{const host=document.querySelector(selector);if(host&&Array.isArray(items))host.innerHTML=items.map(i=>`<div class="card"><h3>${escapeHtml(i.title)}</h3><p>${escapeHtml(i.text)}</p></div>`).join('');};renderCards('[data-cms-cards="presse.services"]',data.presse?.services);renderCards('[data-cms-cards="langaaen.principles"]',data.langaaen?.principles);renderCards('[data-cms-cards="foredrag.audiences"]',data.foredrag?.audiences);
+const list=document.querySelector('[data-cms-list="journalistik.services"]');if(list&&Array.isArray(data.journalistik?.services))list.innerHTML=data.journalistik.services.map(x=>`<li>${escapeHtml(typeof x==='string'?x:x.service)}</li>`).join('');
+const prices=document.querySelector('[data-cms-prices="priser.items"]');if(prices&&Array.isArray(data.priser?.items))prices.innerHTML=data.priser.items.map(i=>`<article class="price-row"><div><h2>${escapeHtml(i.title)}</h2><p>${escapeHtml(i.text)}</p></div><strong>${escapeHtml(i.price)}</strong></article>`).join('');
+const work=document.querySelector('[data-cms-work="arbejde.items"]');if(work&&Array.isArray(data.arbejde?.items))work.innerHTML=data.arbejde.items.map((i,n)=>`<article class="portfolio-item"><div class="portfolio-number">${String(n+1).padStart(2,'0')}</div><div class="portfolio-copy"><p class="kicker">${escapeHtml(i.eyebrow)}</p><h2>${escapeHtml(i.title)}</h2><p>${escapeHtml(i.text)}</p><p class="portfolio-meta">${escapeHtml(i.meta)}</p><a class="link-arrow" href="${escapeHtml(i.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(i.link_text)}</a></div>${i.image?`<figure class="portfolio-image"><img src="${escapeHtml(i.image)}" alt="${escapeHtml(i.image_alt||'')}"></figure>`:''}</article>`).join('');
+if(data.site){document.querySelectorAll('[data-site-email],[data-cms-email]').forEach(el=>{if(data.site.email){el.textContent=data.site.email;if(el.tagName==='A')el.href='mailto:'+data.site.email;}});document.querySelectorAll('[data-site-phone]').forEach(el=>{if(data.site.phone){el.textContent=data.site.phone;if(el.tagName==='A')el.href='tel:'+(data.site.phone_link||data.site.phone.replace(/\s+/g,''));}});document.querySelectorAll('[data-site-location]').forEach(el=>{if(data.site.location)el.textContent=data.site.location;});}}
 loadCms();

@@ -1,46 +1,51 @@
 {
   "kicker": "Priser",
   "title": "Hvad koster det?",
-  "intro": "Du skal vide, hvad en opgave cirka koster, før vi går i gang. Derfor har jeg samlet priserne på de mest almindelige opgaver her.",
+  "intro": "Her kan du se, hvad de mest almindelige opgaver koster, og hvad der er med i prisen.",
   "items": [
     {
-      "title": "Webtekst",
-      "price": "Fra 2.500 kr.",
-      "text": "En skarp og målrettet tekst til din hjemmeside."
+      "title": "Kort webtekst",
+      "price": "1.500 kr.",
+      "text": "Tekst på maks. 500 ord og én korrekturrunde."
     },
     {
       "title": "Pressemeddelelse",
-      "price": "Fra 3.500 kr.",
-      "text": "Vinkel, interview og færdig pressemeddelelse klar til udsendelse."
+      "price": "2.500 kr.",
+      "text": "Briefing eller interview, vinkling og færdig pressemeddelelse."
     },
     {
-      "title": "Artikel eller portræt",
-      "price": "Fra 4.500 kr.",
-      "text": "Research, interview og en færdig journalistisk artikel."
+      "title": "Artikel",
+      "price": "3.000 kr.",
+      "text": "Interview, research og færdig artikel."
     },
     {
-      "title": "Artikel + billeder",
-      "price": "Fra 5.500 kr.",
-      "text": "Journalistisk artikel og en mindre serie billeder fra opgaven."
+      "title": "Portræt",
+      "price": "3.000 kr.",
+      "text": "Interview, research og færdigt portræt."
     },
     {
-      "title": "Reportage eller større feature",
-      "price": "Fra 6.500 kr.",
-      "text": "Til historier, der kræver mere tid, research og tilstedeværelse."
+      "title": "Artikel eller portræt + billeder",
+      "price": "3.750 kr.",
+      "text": "Artikel eller portræt samt fotografering og et udvalg af billeder."
+    },
+    {
+      "title": "Større reportage / feature",
+      "price": "4.500 kr.",
+      "text": "Research, interviews og færdig reportage eller feature."
     },
     {
       "title": "Journalistisk og kommunikativ sparring",
-      "price": "950 kr. pr. time",
-      "text": "Hjælp til vinkel, budskaber, indhold og journalistiske idéer."
+      "price": "750 kr. pr. time",
+      "text": "Rådgivning efter behov."
     },
     {
       "title": "Foredrag: Bror til et selvmord",
       "price": "6.000 kr.",
-      "text": "Et personligt foredrag om tab, sorg og livet efter min brors selvmord."
+      "text": "Foredrag og mulighed for spørgsmål."
     }
   ],
-  "note_title": "Ikke to historier er ens",
-  "note": "Priserne er vejledende og afhænger af opgavens omfang. Én korrekturrunde er inkluderet. Større ændringer, ekstra interviews og andre tilvalg aftales særskilt. Alle priser er ekskl. moms.",
+  "note_title": "Prisen er prisen",
+  "note": "Du kan se, hvad opgaven koster, inden vi går i gang. Alle priser er ekskl. moms og inkluderer én korrekturrunde. Har du en opgave, der ikke passer ind i prislisten, aftaler vi pris og omfang på forhånd.",
   "contact_title": "Har du en opgave?",
-  "contact_text": "Fortæl mig, hvad du har brug for. Så får du en konkret pris, inden jeg går i gang."
+  "contact_text": "Fortæl mig, hvad du har brug for. Så finder vi ud af, hvilken løsning der passer til opgaven."
 }

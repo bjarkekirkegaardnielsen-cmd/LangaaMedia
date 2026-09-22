@@ -120,6 +120,29 @@ collections:
               - { label: "Titel", name: "title", widget: "string" }
               - { label: "Tekst", name: "text", widget: "text" }
 
+      - label: "Mit arbejde"
+        name: "arbejde"
+        file: "content/arbejde.json"
+        format: "json"
+        fields:
+          - { label: "Overlinje", name: "kicker", widget: "string" }
+          - { label: "Overskrift", name: "title", widget: "string" }
+          - { label: "Introduktion", name: "intro", widget: "text" }
+          - label: "Udvalgte arbejder"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Kategori", name: "eyebrow", widget: "string" }
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Beskrivelse", name: "text", widget: "text" }
+              - { label: "Nøgleord", name: "meta", widget: "string" }
+              - { label: "Link", name: "url", widget: "string" }
+              - { label: "Linktekst", name: "link_text", widget: "string" }
+              - { label: "Billede", name: "image", widget: "image", required: false }
+              - { label: "Billedbeskrivelse", name: "image_alt", widget: "string", required: false }
+          - { label: "Afsluttende overskrift", name: "closing_title", widget: "string" }
+          - { label: "Afsluttende tekst", name: "closing_text", widget: "text" }
+
       - label: "Priser"
         name: "priser"
         file: "content/priser.json"
