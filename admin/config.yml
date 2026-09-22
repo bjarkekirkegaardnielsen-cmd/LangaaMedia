@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: bjarkekirkegaardnielsen-cmd/LangaaMedia
+  name: turbo-github
+  turbo_site_id: 3e76a9b3-fbc6-4f8c-bd7d-02be613366d7
   branch: main
 
 media_folder: "images/uploads"
